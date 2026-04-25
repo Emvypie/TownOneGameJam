@@ -1,7 +1,20 @@
 [gd_scene format=3 uid="uid://bj0mj5dumoc72"]
 
-[node name="ServiceCounter" type="Node2D" unique_id=1627871966]
+[ext_resource type="Script" uid="uid://7nqkw4qd52jn" path="res://UI/HboxContainer.gd" id="1_iimxx"]
 
-[node name="ScoreCounter" type="HBoxContainer" parent="." unique_id=1404649624]
+[node name="StarCounter" type="Node2D" unique_id=1627871966]
+
+[node name="StarCount" type="HBoxContainer" parent="." unique_id=1404649624]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/separation = 5
+script = ExtResource("1_iimxx")
+
+[node name="Star1" type="TextureRect" parent="StarCount" unique_id=1623910190]
+layout_mode = 2
+
+[node name="Star2" type="TextureRect" parent="StarCount" unique_id=1255518504]
+layout_mode = 2
+
+[node name="Star3" type="TextureRect" parent="StarCount" unique_id=485116965]
+layout_mode = 2
