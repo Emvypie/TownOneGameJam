@@ -13,6 +13,10 @@ config_version=5
 config/name="TownOneGameJam"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://c6b8jnnyankea"
+
 [display]
 
 window/size/viewport_width=1920
