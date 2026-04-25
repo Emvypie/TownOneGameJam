@@ -67,9 +67,6 @@ func idle(delta: float) -> void:
 	if move_input != Vector2.ZERO:
 		current_state = EStates.WALK
 		
-	#if Input.is_action_just_pressed("PICKUP"):
-		#start pickup()
-
 func walk(delta: float) -> void:
 	
 	var direction = Vector3.ZERO
@@ -81,10 +78,6 @@ func walk(delta: float) -> void:
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		# Setting the basis property will affect the rotation of the node.
-		
-		# ROTATION
-		#$Pivot.basis = Basis.looking_at(direction)
 
 	# Ground Velocity
 	velocity.x = direction.x * speed

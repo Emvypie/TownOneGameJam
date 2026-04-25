@@ -7,6 +7,8 @@ enum States {
 
 signal on_current_state_changed(state: States)
 var initial_state: States = States.PLACED
+var has_entered: bool = false
+signal scene_entered(path)
 
 var _current_state: States = States.PLACED
 var current_state: States:
@@ -33,16 +35,13 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: CharacterBody3D):
 	if body.name == 'KB_Player':
 		print('Player entered area')
-		#if position.y == 0:
-			#return
-		#position.y += 1
+		has_entered = true
+		scene_entered.emit("res://levels/level_2.tscn")
 
 func _on_body_exited(body: CharacterBody3D):
 	if body.name == 'KB_Player':
 		print('Player exited area')
-		#if position.y == 5:
-			#return
-		#position.y -= 1
+		has_entered = false
 		
 func set_state(new_state) -> void:
 	current_state = States.HELD
