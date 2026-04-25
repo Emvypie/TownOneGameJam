@@ -5,6 +5,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2cfl"]
+albedo_color = Color(0.26839805, 0.26839802, 0.26839802, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
@@ -17,7 +20,13 @@ size = Vector3(17, 1, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_76hnt"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dt12"]
+albedo_color = Color(0.45298773, 0.44118765, 0.9602346, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_76hnt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76hnt"]
+albedo_color = Color(0.92006916, 0.44672453, 0.45931786, 1)
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 metadata/_edit_lock_ = true
@@ -31,6 +40,7 @@ shape = SubResource("BoxShape3D_7fr83")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor" unique_id=2138170876]
 transform = Transform3D(22.816, 0, 0, 0, 2.002, 0, 0, 0, 23.165, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_e2cfl")
 mesh = SubResource("BoxMesh_t33is")
 metadata/_edit_lock_ = true
 
@@ -84,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_76hnt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=1085191106]
+material_override = SubResource("StandardMaterial3D_5dt12")
 mesh = SubResource("BoxMesh_76hnt")
 
 [node name="Box2" type="Area3D" parent="." unique_id=1857781460]
@@ -94,3 +105,4 @@ shape = SubResource("BoxShape3D_76hnt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box2" unique_id=1973604266]
 mesh = SubResource("BoxMesh_76hnt")
+surface_material_override/0 = SubResource("StandardMaterial3D_76hnt")
