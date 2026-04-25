@@ -1,0 +1,135 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cnvoebjuvxcf"]
+
+[ext_resource type="Texture2D" uid="uid://dl0ebb2q0jfbn" path="res://Textures/T_Noise1_tiled.png" id="1_b5als"]
+[ext_resource type="Texture2D" uid="uid://c5jyqr8443aw1" path="res://Textures/T_PerlinNoise_Tiled.png" id="2_nnn6r"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_nnn6r"]
+linked_parent_graph_frame = 17
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_tee22"]
+linked_parent_graph_frame = 17
+parameter_name = "Vibe_Texture_Pan_SPD"
+default_value_enabled = true
+default_value = Vector2(0.005, 0.005)
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_b5als"]
+linked_parent_graph_frame = 17
+parameter_name = "Vibe_Texture_Size2"
+default_value_enabled = true
+default_value = Vector2(50, 50)
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_nnn6r"]
+linked_parent_graph_frame = 16
+parameter_name = "Vibe_Base_STR"
+default_value_enabled = true
+default_value = 0.8
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_tee22"]
+linked_parent_graph_frame = 16
+operator = 5
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_b5als"]
+size = Vector2(789, 424)
+attached_nodes = PackedInt32Array(14, 15, 21)
+
+[sub_resource type="VisualShaderNodeFrame" id="VisualShaderNodeFrame_nnn6r"]
+size = Vector2(1949.0001, 1309)
+attached_nodes = PackedInt32Array(13, 7, 6, 12, 8, 3, 10, 9, 18, 19)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_b5als"]
+linked_parent_graph_frame = 17
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_xtxc3"]
+linked_parent_graph_frame = 17
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_tee22"]
+parameter_name = "Vibe_Color"
+default_value_enabled = true
+default_value = Color(0.2779673, 0.1328553, 0.97134036, 1)
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_tee22"]
+parameter_name = "Vibe_Color_INT"
+hint = 1
+min = 5.0
+max = 50.0
+default_value_enabled = true
+default_value = 50.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_sdvx2"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_xtxc3"]
+linked_parent_graph_frame = 17
+texture = ExtResource("1_b5als")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sdvx2"]
+texture = ExtResource("2_nnn6r")
+
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_b5als"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_b5als"]
+linked_parent_graph_frame = 17
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_b5als"]
+linked_parent_graph_frame = 17
+parameter_name = "Vibe_Texture_Size"
+hint = 1
+min = 1.0
+max = 5.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_b5als"]
+default_input_values = [1, Vector2(1, 1), 2, Vector2(1, 1)]
+linked_parent_graph_frame = 17
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_xtxc3"]
+linked_parent_graph_frame = 17
+input_name = "time"
+
+[resource]
+varyings/Moving_SPD = "0,3"
+nodes/fragment/0/position = Vector2(693.3333, 1333.3334)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_tee22")
+nodes/fragment/2/position = Vector2(-40, 573.3333)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_xtxc3")
+nodes/fragment/3/position = Vector2(-666.6667, 1626.6666)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_sdvx2")
+nodes/fragment/4/position = Vector2(-680, 2093.3333)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorOp_b5als")
+nodes/fragment/5/position = Vector2(-1360, 826.6667)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_b5als")
+nodes/fragment/6/position = Vector2(-360, 1680)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_b5als")
+nodes/fragment/7/position = Vector2(-746.6667, 1293.3334)
+nodes/fragment/8/node = SubResource("VisualShaderNodeUVFunc_b5als")
+nodes/fragment/8/position = Vector2(-906.6667, 1706.6666)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_xtxc3")
+nodes/fragment/9/position = Vector2(-1440, 1680)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_nnn6r")
+nodes/fragment/10/position = Vector2(-1120, 1720)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVec2Parameter_tee22")
+nodes/fragment/12/position = Vector2(-1440, 1800)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVec2Parameter_b5als")
+nodes/fragment/13/position = Vector2(-1386.6666, 1360)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatParameter_nnn6r")
+nodes/fragment/14/position = Vector2(-93.333336, 1293.3334)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorOp_tee22")
+nodes/fragment/15/position = Vector2(213.33333, 1306.6666)
+nodes/fragment/16/node = SubResource("VisualShaderNodeFrame_b5als")
+nodes/fragment/16/position = Vector2(-120, 1253.3334)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFrame_nnn6r")
+nodes/fragment/17/position = Vector2(-1466.6666, 1200)
+nodes/fragment/18/node = SubResource("VisualShaderNodeInput_b5als")
+nodes/fragment/18/position = Vector2(-1386.6666, 1240)
+nodes/fragment/19/node = SubResource("VisualShaderNodeVectorOp_xtxc3")
+nodes/fragment/19/position = Vector2(-1053.3334, 1280)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatParameter_tee22")
+nodes/fragment/20/position = Vector2(-40, 813.3333)
+nodes/fragment/22/node = SubResource("VisualShaderNodeVectorOp_sdvx2")
+nodes/fragment/22/position = Vector2(280, 680)
+nodes/fragment/connections = PackedInt32Array(3, 0, 6, 0, 7, 0, 6, 1, 9, 0, 10, 0, 12, 0, 10, 1, 10, 0, 8, 2, 14, 0, 15, 0, 6, 0, 15, 1, 15, 0, 0, 1, 18, 0, 19, 0, 13, 0, 19, 1, 8, 0, 3, 0, 13, 0, 8, 1, 22, 0, 0, 0, 20, 0, 22, 1, 2, 0, 22, 0)

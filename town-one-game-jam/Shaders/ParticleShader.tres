@@ -1,0 +1,31 @@
+[gd_resource type="VisualShader" format=3 uid="uid://c4yb4spp61uqv"]
+
+[ext_resource type="Texture2D" uid="uid://b548paqwtsldy" path="res://Textures/T_Circle.png" id="1_7n8xs"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_e7tth"]
+parameter_name = "Particle_Color"
+default_value_enabled = true
+default_value = Color(1, 0.5547173, 0.06560834, 1)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_762jd"]
+expanded_output_ports = [0]
+texture = ExtResource("1_7n8xs")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_7n8xs"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_762jd"]
+parameter_name = "Particle_Color_INT"
+default_value_enabled = true
+default_value = 5.0
+
+[resource]
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_e7tth")
+nodes/fragment/2/position = Vector2(-346.66666, -66.666664)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_762jd")
+nodes/fragment/3/position = Vector2(-133.33333, 333.33334)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_7n8xs")
+nodes/fragment/4/position = Vector2(93.333336, -80)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatParameter_762jd")
+nodes/fragment/5/position = Vector2(-333.33334, 160)
+nodes/fragment/connections = PackedInt32Array(3, 4, 0, 1, 2, 0, 0, 0, 2, 0, 4, 0, 4, 0, 0, 5, 5, 0, 4, 1)
