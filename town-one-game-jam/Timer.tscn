@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bcod0en8xwx1f"]
+
+[ext_resource type="Script" uid="uid://rc8swwrxlpwv" path="res://timer.gd" id="1_2p01c"]
+
+[node name="Timer" type="Node" unique_id=2098668842]
+script = ExtResource("1_2p01c")
+
+[node name="Timer" type="Timer" parent="." unique_id=1828593927]
+wait_time = 300.0
+one_shot = true
+
+[node name="Label" type="Label" parent="." unique_id=64107156]
+offset_left = 1319.0
+offset_top = 664.0
+offset_right = 1916.0
+offset_bottom = 1073.0
+theme_override_font_sizes/font_size = 150
+text = "1:00"
+horizontal_alignment = 1
+vertical_alignment = 1
