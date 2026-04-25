@@ -4,26 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_t33is"]
 [ext_resource type="Texture2D" uid="uid://byt28lh8oog1u" path="res://Textures/T_Star.png" id="2_5p0eq"]
 [ext_resource type="Texture2D" uid="uid://b548paqwtsldy" path="res://Textures/T_Circle.png" id="3_4y1r4"]
-[ext_resource type="Texture2D" uid="uid://b7cnlbhgrfwya" path="res://Textures/T_Skull.png" id="4_6bry8"]
+[ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="5_6bry8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bry8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5p0eq"]
 render_priority = 0
 shader = ExtResource("1_4xruw")
-shader_parameter/Vibe_Color = Color(0.277967, 0.132855, 0.97134, 1)
+shader_parameter/Vibe_Color = Color(0.6048261, 0.24923697, 0, 1)
 shader_parameter/Vibe_Color_INT = 50.0
 shader_parameter/Vibe_Base_STR = 0.8
 shader_parameter/Vibe_Texture_Size2 = Vector2(50, 50)
 shader_parameter/Vibe_Texture_Pan_SPD = Vector2(0.005, 0.005)
 shader_parameter/Vibe_Texture_Size = 1.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x2kcs"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4y1r4"]
 emission_shape = 1
@@ -37,53 +35,20 @@ scale_max = 0.099999994
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bry8"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("4_6bry8")
-
-[sub_resource type="QuadMesh" id="QuadMesh_4y1r4"]
-material = SubResource("StandardMaterial3D_6bry8")
-size = Vector2(10, 10)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l8qe"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.7215243, 0.5240307, 1.3616757, 0.5882353)
-albedo_texture = ExtResource("3_4y1r4")
-
-[sub_resource type="QuadMesh" id="QuadMesh_7h23t"]
-material = SubResource("StandardMaterial3D_1l8qe")
-size = Vector2(3, 3)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2kcs"]
-render_priority = 0
-shader = ExtResource("1_4xruw")
-shader_parameter/Vibe_Color = Color(0.62157416, 0.27111262, 0.046980225, 1)
-shader_parameter/Vibe_Color_INT = 50.0
-shader_parameter/Vibe_Base_STR = 0.8
-shader_parameter/Vibe_Texture_Size2 = Vector2(50, 50)
-shader_parameter/Vibe_Texture_Pan_SPD = Vector2(0.005, 0.005)
-shader_parameter/Vibe_Texture_Size = 1.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_1l8qe"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2kcs"]
-transparency = 1
-shading_mode = 0
 albedo_texture = ExtResource("2_5p0eq")
 
 [sub_resource type="QuadMesh" id="QuadMesh_x2kcs"]
-material = SubResource("StandardMaterial3D_x2kcs")
-size = Vector2(10, 10)
+material = SubResource("StandardMaterial3D_6bry8")
+size = Vector2(5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y1r4"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1.3618232, 0.53498095, 0.21372372, 0.39215687)
 albedo_texture = ExtResource("3_4y1r4")
-grow_amount = 10.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_6bry8"]
 material = SubResource("StandardMaterial3D_4y1r4")
-size = Vector2(3, 3)
+size = Vector2(5, 5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
 
@@ -114,38 +79,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.037158, -8)
 
 [node name="MESH_Player" type="MeshInstance3D" parent="KB_Player" unique_id=1109650814]
 transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 2, 0, 0, 0)
+material_overlay = SubResource("ShaderMaterial_5p0eq")
 mesh = SubResource("CapsuleMesh_tkmsp")
 metadata/_edit_lock_ = true
 
-[node name="GloomyVibe" type="MeshInstance3D" parent="KB_Player/MESH_Player" unique_id=1561443796]
-visible = false
-material_overlay = SubResource("ShaderMaterial_6bry8")
-mesh = SubResource("CapsuleMesh_x2kcs")
-
-[node name="VibeIcon_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player/GloomyVibe" unique_id=277752048]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.032811165, 0, 0)
-process_material = SubResource("ParticleProcessMaterial_4y1r4")
-draw_pass_1 = SubResource("QuadMesh_4y1r4")
-
-[node name="VibeParticle_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player/GloomyVibe" unique_id=660845709]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.052357435, 0, 0)
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_4y1r4")
-draw_pass_1 = SubResource("QuadMesh_7h23t")
-
-[node name="HappyVibe" type="MeshInstance3D" parent="KB_Player/MESH_Player" unique_id=1563521135]
-visible = false
-material_overlay = SubResource("ShaderMaterial_x2kcs")
-mesh = SubResource("CapsuleMesh_1l8qe")
-
-[node name="VibeIcon_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player/HappyVibe" unique_id=1048851678]
+[node name="VibeIcon_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player" unique_id=1048851678]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 process_material = SubResource("ParticleProcessMaterial_4y1r4")
 draw_pass_1 = SubResource("QuadMesh_x2kcs")
 
-[node name="VibeParticle_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player/HappyVibe" unique_id=1586620122]
+[node name="VibeParticle_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player" unique_id=1586620122]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.01954627, 0, 0)
-amount = 30
 process_material = SubResource("ParticleProcessMaterial_4y1r4")
 draw_pass_1 = SubResource("QuadMesh_6bry8")
 
@@ -203,6 +147,9 @@ fov = 80.0
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1125434577]
+visible = false
 modulate = Color(1, 1, 1, 0.16078432)
 position = Vector2(960, 540)
 texture = ExtResource("1_t33is")
+
+[node name="Timer" parent="." unique_id=2098668842 instance=ExtResource("5_6bry8")]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cf7l7vayb6sgj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ys6c2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4qrh"]
+
+[node name="Dispenser" type="Node3D" unique_id=1083783746]
+
+[node name="Cauldron" type="Area3D" parent="." unique_id=1581419270]
+
+[node name="COL_Cauldron" type="CollisionShape3D" parent="Cauldron" unique_id=870875367]
+shape = SubResource("BoxShape3D_ys6c2")
+
+[node name="MESH_Cauldron" type="MeshInstance3D" parent="Cauldron" unique_id=752961449]
+
+[node name="SFX_Lever" type="AudioStreamPlayer3D" parent="Cauldron" unique_id=736209494]
+
+[node name="Lever" type="Area3D" parent="." unique_id=1001479596]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lever" unique_id=1542595777]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever" unique_id=2070691332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = SubResource("BoxShape3D_r4qrh")
+
+[node name="SFX_Lever" type="AudioStreamPlayer3D" parent="Lever" unique_id=723275000]
