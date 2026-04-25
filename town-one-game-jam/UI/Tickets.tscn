@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bj0mj5dumoc72"]
+
+[ext_resource type="Script" uid="uid://7nqkw4qd52jn" path="res://UI/HboxContainer.gd" id="1_r68oe"]
+[ext_resource type="Texture2D" uid="uid://8ahriydxnq0a" path="res://UI/hud_heartFull.png" id="2_1hd1f"]
+
+[node name="Tickets" type="Node2D" unique_id=1627871966]
+
+[node name="TicketCounter" type="HBoxContainer" parent="." unique_id=1404649624]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+script = ExtResource("1_r68oe")
+
+[node name="Star1" type="TextureRect" parent="TicketCounter" unique_id=1623910190]
+layout_mode = 2
+texture = ExtResource("2_1hd1f")
+
+[node name="Star2" type="TextureRect" parent="TicketCounter" unique_id=1255518504]
+layout_mode = 2
+texture = ExtResource("2_1hd1f")
+
+[node name="Star3" type="TextureRect" parent="TicketCounter" unique_id=485116965]
+layout_mode = 2
+texture = ExtResource("2_1hd1f")
