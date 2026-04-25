@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://ddvt2bf3qiuv2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
+
+[sub_resource type="GDScript" id="GDScript_paeh8"]
+script/source = "extends CharacterBody3D
+
+## -----------------------------------------------------------------------------
+## Enums
+## -----------------------------------------------------------------------------
+
+enum EStates {
+	IDLE,
+	WALK,
+	PICKUP,
+	PUTDOWN,
+	CHOP
+}
+
+signal on_current_state_changed(state: EStates)
+
+var initial_state: EStates = EStates.IDLE
+
+var _current_state: EStates = EStates.IDLE
+var current_state: EStates:
+	get:
+		return _current_state
+	set(value):
+		if _current_state != value:
+			_current_state = value
+			on_current_state_changed.emit(value)
+
+## -----------------------------------------------------------------------------
+## Export Variables
+## -----------------------------------------------------------------------------
+
+@export_group(\"3D\")
+@export var rotation_speed: float = 10.0
+@export var floor_y: float = 0.0
+@export var camera_pivot: Node3D
+@export var speed = 400
+
+
+var move_input: Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	current_state = initial_state
+	global_position.y = floor_y
+
+
+func _physics_process(delta: float) -> void:
+	move_input = Input.get_vector(\"R_LEFT\", \"R_RIGHT\", \"R_UP\", \"R_DOWN\")
+
+	match current_state:
+		EStates.IDLE:
+			idle(delta)
+		EStates.WALK:
+			walk(delta)
+		EStates.PICKUP:
+			pickup(delta)
+		EStates.PUTDOWN:
+			putdown(delta)
+		EStates.CHOP:
+			chop(delta)
+
+	#apply_vertical_movement(delta)
+	get_input()
+	#face_move_direction(delta)
+
+## State Code
+
+func idle(delta: float) -> void:
+	velocity = Vector3(0,0,0)
+	
+	if move_input != Vector2.ZERO:
+		current_state = EStates.WALK
+
+func walk(delta: float) -> void:
+	rotation += rotation_direction * rotation_speed * delta
+	velocity = transform.basis.x * Input.get_axis(\"down\", \"up\") * speed
+	move_and_slide()
+
+	if move_input == Vector2.ZERO:
+		current_state = EStates.IDLE
+
+## Action Code
+
+func pickup(delta: float) -> void:
+	return
+
+func putdown(delta: float) -> void:
+	return
+
+func chop(delta: float) -> void:
+	return
+
+## Movement Code
+var rotation_direction = 0
+
+func get_input():
+	rotation_direction = Input.get_axis(\"left\", \"right\")
+"
+
+[sub_resource type="GDScript" id="GDScript_8sucx"]
+script/source = "extends Resource
+class_name Walk
+
+@export var move_speed: float = 6.0
+@export var acceleration: float = 12.0
+
+func start(_player: CharacterBody3D) -> void:
+	print(\"WALK\")
+
+func execute(player: CharacterBody3D, delta: float) -> void:
+	var move_dir: Vector3 = player.get_camera_relative_move_direction()
+
+	var target_x: float = move_dir.x * move_speed
+	var target_z: float = move_dir.z * move_speed
+
+	player.velocity.x = lerp(player.velocity.x, target_x, acceleration * delta)
+	player.velocity.z = lerp(player.velocity.z, target_z, acceleration * delta)
+
+func is_finished(_player: CharacterBody3D) -> bool:
+	return false
+"
+
+[node name="Main Scene" type="Node3D" unique_id=814078436]
+
+[node name="Environment" type="Area3D" parent="." unique_id=839424962]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment" unique_id=1008832378]
+shape = SubResource("BoxShape3D_7fr83")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1084533512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
+
+[node name="MESH_Player" type="MeshInstance3D" parent="Player" unique_id=1109650814]
+mesh = SubResource("CapsuleMesh_tkmsp")
+metadata/_edit_lock_ = true
+
+[node name="COL_Player" type="CollisionShape3D" parent="Player" unique_id=720841968]
+shape = SubResource("CapsuleShape3D_7fr83")
+metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="Player" unique_id=44597019]
+script = SubResource("GDScript_paeh8")
+
+[node name="IDLE" type="Node" parent="Player/StateMachine" unique_id=1234020842]
+
+[node name="WALK" type="Node" parent="Player/StateMachine" unique_id=1776025330]
+script = SubResource("GDScript_8sucx")
+
+[node name="PICKUP" type="Node" parent="Player/StateMachine" unique_id=902702216]
+
+[node name="PUTDOWN" type="Node" parent="Player/StateMachine" unique_id=1376107252]
+
+[node name="CHOP" type="Node" parent="Player/StateMachine" unique_id=1813084138]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
