@@ -42,13 +42,19 @@ func _ready() -> void:
 	for area in get_tree().get_nodes_in_group("detection_areas"):
 		area.body_entered.connect(_on_area_body_entered.bind(area))
 		area.body_exited.connect(_on_area_body_exited.bind(area))
+	
+	#for block in get_tree().get_nodes_in_group("chopping_block"):
+		#block.body_entered.connect(_on_block_body_entered.bind(block))
+		#block.body_exited.connect(_on_area_body_exited.bind(block))
+#
 
 func _on_area_body_entered(body: Node3D, area: Area3D):
 	if body == self:
 		print("I entered: ", area.name)
 		picked_object = area
 		print(picked_object)
-		
+
+#func _on_block_body_
 		
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
