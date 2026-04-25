@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmsugsciwwvyq"]
 
-[ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://freesound_community-chest-opening-87569.mp3" id="1_h6u1k"]
+[ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://Coffin/CoffinOpen.mp3" id="1_bjej6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyx7i"]
 
@@ -8,15 +8,17 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_0on15"]
 
-[node name="Coffin" type="Area3D" unique_id=1882210262]
+[node name="Coffin" type="Node3D" unique_id=1815768998]
 
-[node name="COL_Coffin" type="CollisionShape3D" parent="." unique_id=756849897]
+[node name="Area3D" type="Area3D" parent="." unique_id=1568458476]
+
+[node name="COL_Coffin" type="CollisionShape3D" parent="Area3D" unique_id=756849897]
 shape = SubResource("BoxShape3D_qyx7i")
 
 [node name="MESH_Coffin" type="MeshInstance3D" parent="." unique_id=1150659608]
 
 [node name="SFX_CoffinOpen" type="AudioStreamPlayer3D" parent="." unique_id=1776805700]
-stream = ExtResource("1_h6u1k")
+stream = ExtResource("1_bjej6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=828330281]
 visible = false
