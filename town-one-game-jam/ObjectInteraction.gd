@@ -5,29 +5,48 @@ enum States {
 	PLACED
 }
 
-@onready var raycast = $Camera/RayCast3D
-@onready var hold_position = $Camera/Marker3D
+signal on_current_state_changed(state: States)
+var initial_state: States = States.PLACED
+
+var _current_state: States = States.PLACED
+var current_state: States:
+	get:
+		return _current_state
+	set(value):
+		if _current_state != value:
+			_current_state = value
+			on_current_state_changed.emit(value)
+
+@onready var hold_position = $"../Camera/Marker3D"
 var picked_object = null
+var range_radius = 20
+var interact_input: Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-func pickup() -> void:
-	print("pickup")
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-		if collider.is_in_group("pickable"):
-			picked_object = collider
-			# For physics objects, freeze them so they don't fall while held
-			if picked_object is RigidBody3D:
-				picked_object.freeze = true
-			
-			# Reparent or snap to hold position
-			picked_object.reparent(hold_position)
-			picked_object.position = Vector3.ZERO
-			picked_object.rotation = Vector3.ZERO
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
 
+func _on_body_entered(body: CharacterBody3D):
+	if body.name == 'KB_Player':
+		print('Player entered area')
+		#if position.y == 0:
+			#return
+		#position.y += 1
+
+func _on_body_exited(body: CharacterBody3D):
+	if body.name == 'KB_Player':
+		print('Player exited area')
+		#if position.y == 5:
+			#return
+		#position.y -= 1
+		
+func set_state(new_state) -> void:
+	current_state = States.HELD
+	
 func place() -> void:
 	print("place")
 	if picked_object:
@@ -36,7 +55,3 @@ func place() -> void:
 		if picked_object is RigidBody3D:
 			picked_object.freeze = false
 		picked_object = null
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -24,6 +24,8 @@ var current_state: EStates:
 		if _current_state != value:
 			_current_state = value
 			on_current_state_changed.emit(value)
+@onready var hold_position = $"."
+var picked_object = null
 
 ## -----------------------------------------------------------------------------
 ## Export Variables
@@ -37,7 +39,7 @@ var move_input: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	current_state = initial_state
-
+	
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 
@@ -47,14 +49,16 @@ func _physics_process(delta: float) -> void:
 		EStates.WALK:
 			walk(delta)
 		EStates.PICKUP:
-			$Area3D.pickup()
-		EStates.PUTDOWN:
-			$Area3D.putdown()
-		EStates.CHOP:
-			chop(delta)
+			pickup()
 
 	get_input()
-
+	
+func _input(event):
+	if event.is_action_pressed("PICKUP"):
+		pickup()
+	if event.is_action_pressed("PUTDOWN"):
+		putdown()
+		
 ## State Code
 
 func idle(delta: float) -> void:
@@ -62,6 +66,9 @@ func idle(delta: float) -> void:
 	
 	if move_input != Vector2.ZERO:
 		current_state = EStates.WALK
+		
+	#if Input.is_action_just_pressed("PICKUP"):
+		#start pickup()
 
 func walk(delta: float) -> void:
 	
@@ -91,9 +98,28 @@ func walk(delta: float) -> void:
 
 ## Action Code
 
+		
+func pickup() -> void:
+	print("pickup")
+	picked_object = $"../Environment/StaticBody3D"
+	picked_object.reparent(hold_position)
+	print(picked_object)
 
-func chop(delta: float) -> void:
-	pass
+			
+func putdown() -> void:
+	if picked_object != null:
+		# Re-enable physics and return to world
+		picked_object.reparent(get_tree().root) # Or your world node
+		picked_object = null
+
+## Helper Functions
+
+func is_in_range() -> bool:
+	var range_radius = 10
+	if position.distance_to(position) < range_radius:
+		return true
+	return false
+
 
 ## Movement Code
 var rotation_direction = 0
