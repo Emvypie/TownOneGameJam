@@ -1,11 +1,251 @@
 [gd_scene format=3 uid="uid://ddvt2bf3qiuv2"]
 
-[ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="1_8sucx"]
-[ext_resource type="Script" uid="uid://bagxhbs2oseie" path="res://Jump.gd" id="2_7fr83"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
+
+[sub_resource type="GDScript" id="GDScript_paeh8"]
+script/source = "extends CharacterBody3D
+
+## -----------------------------------------------------------------------------
+## Enums
+## -----------------------------------------------------------------------------
+
+enum EStates {
+	IDLE,
+	WALK,
+	DIVE,
+	JUMP,
+}
+
+signal on_current_state_changed(state: EStates)
+
+var initial_state: EStates = EStates.IDLE
+
+var _current_state: EStates = EStates.IDLE
+var current_state: EStates:
+	get:
+		return _current_state
+	set(value):
+		if _current_state != value:
+			_current_state = value
+			on_current_state_changed.emit(value)
+
+## -----------------------------------------------------------------------------
+## Export Variables
+## -----------------------------------------------------------------------------
+
+@export_group(\"Grounded\")
+@export var move_speed: float = 6.0
+@export var ground_friction: float = 12.0
+
+@export_group(\"Dive\")
+@export var dive_speed: float = 20.0
+@export var dive_time: float = 0.2
+
+@export_group(\"Jump\")
+@export var jump_velocity: float = 9.0
+@export var gravity: float = 24.0
+@export var apex_gravity_mult: float = 0.35
+@export var apex_velocity_threshold: float = 2.0
+
+@export_group(\"3D\")
+@export var rotation_speed: float = 10.0
+@export var floor_y: float = 0.0
+@export var camera_pivot: Node3D
+
+
+var move_input: Vector2 = Vector2.ZERO
+var current_dive_time: float = 0.0
+var dive_vector: Vector3 = Vector3.ZERO
+
+func _ready() -> void:
+	current_state = initial_state
+	global_position.y = floor_y
+
+
+func _physics_process(delta: float) -> void:
+	move_input = Input.get_vector(\"R_LEFT\", \"R_RIGHT\", \"R_UP\", \"R_DOWN\")
+
+	match current_state:
+		EStates.IDLE:
+			idle(delta)
+		EStates.WALK:
+			walk(delta)
+		EStates.DIVE:
+			dive(delta)
+		EStates.JUMP:
+			jump(delta)
+
+	apply_vertical_movement(delta)
+	move_and_slide()
+	resolve_floor()
+	face_move_direction(delta)
+
+## State Code
+
+func idle(delta: float) -> void:
+	horizontal_movement(delta, ground_friction)
+
+	if Input.is_action_just_pressed(\"R_JUMP\"):
+		start_jump()
+	elif Input.is_action_just_pressed(\"R_DIVE\"):
+		dive_vector = get_dive_direction()
+		current_state = EStates.DIVE
+	elif move_input != Vector2.ZERO:
+		current_state = EStates.WALK
+
+func walk(delta: float) -> void:
+	horizontal_movement(delta, ground_friction)
+
+	if Input.is_action_just_pressed(\"R_JUMP\"):
+		start_jump()
+	elif Input.is_action_just_pressed(\"R_DIVE\"):
+		dive_vector = get_dive_direction()
+		current_state = EStates.DIVE
+	elif move_input == Vector2.ZERO:
+		current_state = EStates.IDLE
+
+func dive(delta: float) -> void:
+	velocity.x = dive_vector.x * dive_speed
+	velocity.z = dive_vector.z * dive_speed
+	velocity.y = 0.0
+
+	current_dive_time += delta
+
+	if current_dive_time >= dive_time:
+		current_dive_time = 0.0
+
+		if move_input == Vector2.ZERO:
+			current_state = EStates.IDLE
+		else:
+			current_state = EStates.WALK
+
+func jump(delta: float) -> void:
+	# Intentionally do not touch velocity.x / velocity.z here.
+	# Jump must not add or cancel horizontal speed.
+	apply_jump_gravity(delta)
+
+	if is_on_floor_level():
+		if move_input == Vector2.ZERO:
+			current_state = EStates.IDLE
+		else:
+			current_state = EStates.WALK
+
+## Movement Code
+
+
+func horizontal_movement(delta: float, friction: float) -> void:
+	var move_dir: Vector3 = get_camera_relative_move_direction()
+
+	var target_x: float = move_dir.x * move_speed
+	var target_z: float = move_dir.z * move_speed
+
+	velocity.x = lerp(velocity.x, target_x, friction * delta)
+	velocity.z = lerp(velocity.z, target_z, friction * delta)
+
+func start_jump() -> void:
+	velocity.y = jump_velocity
+	current_state = EStates.JUMP
+
+func apply_vertical_movement(delta: float) -> void:
+	if current_state == EStates.JUMP:
+		return
+
+	if global_position.y > floor_y:
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0.0
+
+func apply_jump_gravity(delta: float) -> void:
+	var applied_gravity: float = gravity
+
+	if abs(velocity.y) <= apex_velocity_threshold:
+		applied_gravity *= apex_gravity_mult
+
+	velocity.y -= applied_gravity * delta
+
+func resolve_floor() -> void:
+	if global_position.y <= floor_y:
+		global_position.y = floor_y
+
+		if velocity.y < 0.0:
+			velocity.y = 0.0
+
+func is_on_floor_level() -> bool:
+	return global_position.y <= floor_y + 0.001 and velocity.y <= 0.0
+
+func get_dive_direction() -> Vector3:
+	var dir: Vector3 = get_camera_relative_move_direction()
+
+	if dir.length_squared() > 0.0001:
+		return dir.normalized()
+
+	return -global_transform.basis.z.normalized()
+
+func get_camera_relative_move_direction() -> Vector3:
+	if camera_pivot == null:
+		var fallback_dir := Vector3(move_input.x, 0.0, move_input.y)
+		if fallback_dir.length_squared() > 1.0:
+			fallback_dir = fallback_dir.normalized()
+		return fallback_dir
+
+	var cam_basis: Basis = camera_pivot.global_transform.basis
+
+	var cam_forward: Vector3 = -cam_basis.z
+	var cam_right: Vector3 = cam_basis.x
+
+	cam_forward.y = 0.0
+	cam_right.y = 0.0
+
+	cam_forward = cam_forward.normalized()
+	cam_right = cam_right.normalized()
+
+	var dir: Vector3 = (cam_right * move_input.x) - (cam_forward * move_input.y)
+
+	if dir.length_squared() > 1.0:
+		dir = dir.normalized()
+
+	return dir
+
+func face_move_direction(delta: float) -> void:
+	var face_dir: Vector3 = Vector3.ZERO
+
+	if current_state == EStates.DIVE:
+		face_dir = dive_vector
+	elif move_input.length_squared() > 0.0001:
+		face_dir = get_camera_relative_move_direction()
+	else:
+		return
+
+	var target_yaw: float = atan2(face_dir.x, face_dir.z)
+	rotation.y = lerp_angle(rotation.y, target_yaw, rotation_speed * delta)
+"
+
+[sub_resource type="GDScript" id="GDScript_8sucx"]
+script/source = "extends Resource
+class_name Walk
+
+@export var move_speed: float = 6.0
+@export var acceleration: float = 12.0
+
+func start(_player: CharacterBody3D) -> void:
+	print(\"WALK\")
+
+func execute(player: CharacterBody3D, delta: float) -> void:
+	var move_dir: Vector3 = player.get_camera_relative_move_direction()
+
+	var target_x: float = move_dir.x * move_speed
+	var target_z: float = move_dir.z * move_speed
+
+	player.velocity.x = lerp(player.velocity.x, target_x, acceleration * delta)
+	player.velocity.z = lerp(player.velocity.z, target_z, acceleration * delta)
+
+func is_finished(_player: CharacterBody3D) -> bool:
+	return false
+"
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 
@@ -15,12 +255,29 @@
 shape = SubResource("BoxShape3D_7fr83")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1084533512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
+
+[node name="MESH_Player" type="MeshInstance3D" parent="Player" unique_id=1109650814]
+mesh = SubResource("CapsuleMesh_tkmsp")
+metadata/_edit_lock_ = true
 
 [node name="COL_Player" type="CollisionShape3D" parent="Player" unique_id=720841968]
 shape = SubResource("CapsuleShape3D_7fr83")
+metadata/_edit_lock_ = true
 
 [node name="StateMachine" type="Node" parent="Player" unique_id=44597019]
-script = ExtResource("1_8sucx")
+script = SubResource("GDScript_paeh8")
 
-[node name="Jump" type="Node" parent="Player/StateMachine" unique_id=1813151454]
-script = ExtResource("2_7fr83")
+[node name="IDLE" type="Node" parent="Player/StateMachine" unique_id=1234020842]
+
+[node name="WALK" type="Node" parent="Player/StateMachine" unique_id=1776025330]
+script = SubResource("GDScript_8sucx")
+
+[node name="PICKUP" type="Node" parent="Player/StateMachine" unique_id=902702216]
+
+[node name="PUTDOWN" type="Node" parent="Player/StateMachine" unique_id=1376107252]
+
+[node name="CHOP" type="Node" parent="Player/StateMachine" unique_id=1813084138]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
