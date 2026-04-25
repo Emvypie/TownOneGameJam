@@ -63,6 +63,7 @@ script = SubResource("GDScript_8sucx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
 
 [node name="MESH_Player" type="MeshInstance3D" parent="CON_Player" unique_id=1739421155]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_tkmsp")
 metadata/_edit_lock_ = true
 
