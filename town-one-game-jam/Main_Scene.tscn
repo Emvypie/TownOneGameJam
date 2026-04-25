@@ -3,11 +3,16 @@
 [ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="1_8sucx"]
 [ext_resource type="Script" uid="uid://bagxhbs2oseie" path="res://Jump.gd" id="2_7fr83"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 
-[node name="Environment" type="Node3D" parent="." unique_id=1973778596]
+[node name="Environment" type="Area3D" parent="." unique_id=839424962]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment" unique_id=1008832378]
+shape = SubResource("BoxShape3D_7fr83")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1084533512]
 
