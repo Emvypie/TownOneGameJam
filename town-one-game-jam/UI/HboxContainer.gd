@@ -5,7 +5,6 @@ enum modes {SIMPLE, EMPTY, PARTIAL}
 var heart_full = preload("res://UI/hud_heartFull.png")
 var heart_empty = preload("res://UI/hud_heartEmpty.png")
 
-
 @export var mode : modes
 
 func update_health(value):
@@ -14,7 +13,6 @@ func update_health(value):
 			update_simple(value)
 		MODES.empty:
 			update_empty(value)
-			
 func update_empty(value):
 	for i in get_child_count():
 		if value > i:
