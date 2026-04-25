@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo8lf0vsldp78"]
 
-[ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_ynng8"]
+[ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_dnlcx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -8,7 +8,7 @@ size = Vector3(17, 1, 15)
 [sub_resource type="BoxMesh" id="BoxMesh_paeh8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fr83"]
-albedo_texture = ExtResource("1_ynng8")
+albedo_texture = ExtResource("1_dnlcx")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
