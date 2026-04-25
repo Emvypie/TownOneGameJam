@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://batbq7idolui0"]
+
+[node name="Node2D" type="Node2D" unique_id=1628921193]
+
+[node name="GameOverText" type="Label" parent="." unique_id=1144735486]
+offset_right = 1920.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 250
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="." unique_id=33173413]
+offset_top = 504.0
+offset_right = 960.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 250
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
