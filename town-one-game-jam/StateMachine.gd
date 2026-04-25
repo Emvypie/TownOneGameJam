@@ -47,9 +47,9 @@ func _physics_process(delta: float) -> void:
 		EStates.WALK:
 			walk(delta)
 		EStates.PICKUP:
-			pickup(delta)
+			$Area3D.pickup()
 		EStates.PUTDOWN:
-			putdown(delta)
+			$Area3D.putdown()
 		EStates.CHOP:
 			chop(delta)
 
@@ -91,11 +91,6 @@ func walk(delta: float) -> void:
 
 ## Action Code
 
-func pickup(delta: float) -> void:
-	pass
-
-func putdown(delta: float) -> void:
-	pass
 
 func chop(delta: float) -> void:
 	pass
