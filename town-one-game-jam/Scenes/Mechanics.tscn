@@ -1,11 +1,46 @@
-[gd_scene format=3 uid="uid://ddvt2bf3qiuv2"]
+[gd_scene format=3 uid="uid://bo8lf0vsldp78"]
 
-[ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_t33is"]
+[ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_dnlcx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_paeh8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fr83"]
+albedo_texture = ExtResource("1_dnlcx")
+
+[sub_resource type="GDScript" id="GDScript_dnlcx"]
+script/source = "extends CharacterBody3D
+
+@export var Walk: walk = null
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
@@ -28,11 +63,13 @@ shape = SubResource("BoxShape3D_7fr83")
 [node name="MESH_Floor" type="MeshInstance3D" parent="Environment/Floor" unique_id=898582109]
 transform = Transform3D(192, 0, 0, 0, 1, 0, 0, 0, 108, 0, 0, 0)
 mesh = SubResource("BoxMesh_paeh8")
+surface_material_override/0 = SubResource("StandardMaterial3D_7fr83")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=712860662]
 
 [node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1084533512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6)
+script = SubResource("GDScript_dnlcx")
 
 [node name="MESH_Player" type="MeshInstance3D" parent="KB_Player" unique_id=1109650814]
 mesh = SubResource("CapsuleMesh_tkmsp")
@@ -84,12 +121,3 @@ script = SubResource("GDScript_8sucx")
 [node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 1, 21.999998, 27.999998)
 fov = 80.0
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1929090013]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1125434577]
-modulate = Color(1, 1, 1, 0.16078432)
-position = Vector2(960, 540)
-texture = ExtResource("1_t33is")
