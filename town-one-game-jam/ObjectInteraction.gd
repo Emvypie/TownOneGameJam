@@ -35,13 +35,10 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: CharacterBody3D):
 	if body.name == 'KB_Player':
 		print('Player entered area')
-		has_entered = true
-		scene_entered.emit("res://levels/level_2.tscn")
 
 func _on_body_exited(body: CharacterBody3D):
 	if body.name == 'KB_Player':
 		print('Player exited area')
-		has_entered = false
 		
 func set_state(new_state) -> void:
 	current_state = States.HELD

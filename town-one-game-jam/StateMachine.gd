@@ -34,12 +34,22 @@ var picked_object = null
 @export_group("3D")
 @export var rotation_speed: float = 10.0
 @export var camera_pivot: Node3D
-@export var speed = 10
+@export var speed = 400
 var move_input: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	current_state = initial_state
-	
+	for area in get_tree().get_nodes_in_group("detection_areas"):
+		area.body_entered.connect(_on_area_body_entered.bind(area))
+		area.body_exited.connect(_on_area_body_exited.bind(area))
+
+func _on_area_body_entered(body: Node3D, area: Area3D):
+	if body == self:
+		print("I entered: ", area.name)
+		picked_object = area
+		print(picked_object)
+		
+		
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 
@@ -73,15 +83,15 @@ func walk(delta: float) -> void:
 	var vertical_movement = Input.get_axis("DOWN", "UP")
 	var horizontal_movement = Input.get_axis("LEFT", "RIGHT")
 	
-	direction.x += horizontal_movement
+	direction.x -= horizontal_movement
 	direction.z += vertical_movement
 
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 
 	# Ground Velocity
-	velocity.x = direction.x * speed
-	velocity.z = direction.z * speed
+	velocity.x = direction.x * speed * delta
+	velocity.z = direction.z * speed * delta 
 
 	# Moving the Character
 	move_and_slide()
@@ -91,27 +101,25 @@ func walk(delta: float) -> void:
 
 ## Action Code
 
-		
 func pickup() -> void:
-	print("pickup")
-	picked_object = $"../Environment/StaticBody3D"
+	print("---------- NEW PICKUP SEQUENCE")
+	print("picked object: ", picked_object)
+	print("hold position; ", hold_position)
+	if picked_object == null:
+		return
+
 	picked_object.reparent(hold_position)
 	print(picked_object)
 
-			
 func putdown() -> void:
+	print("--------- PUT DOWN STARTED")
+	print("putting down object: ", picked_object)
 	if picked_object != null:
 		# Re-enable physics and return to world
+		picked_object.position.x += 0.0001
 		picked_object.reparent(get_tree().root) # Or your world node
 		picked_object = null
-
-## Helper Functions
-
-func is_in_range() -> bool:
-	var range_radius = 10
-	if position.distance_to(position) < range_radius:
-		return true
-	return false
+	print("--------- PUT DOWN COMPLETED")
 
 
 ## Movement Code
@@ -119,3 +127,15 @@ var rotation_direction = 0
 
 func get_input():
 	rotation_direction = Input.get_axis("LEFT", "RIGHT")
+
+#
+#func _on_body_area_entered(area: Area3D) -> void:
+	#pass # Replace with function body.
+#
+#
+#func _on_body_area_exited(area: Area3D) -> void:
+	#pass # Replace with function body.
+
+
+func _on_area_body_exited(area: Area3D) -> void:
+	pass # Replace with function body.
