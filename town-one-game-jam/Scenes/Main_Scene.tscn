@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bej3wyhbyvba"]
+
+[ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_t33is"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
+size = Vector3(17, 1, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_paeh8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
+
+[sub_resource type="GDScript" id="GDScript_paeh8"]
+
+[sub_resource type="GDScript" id="GDScript_8sucx"]
+
+[node name="Main Scene" type="Node3D" unique_id=814078436]
+metadata/_edit_lock_ = true
+
+[node name="Environment" type="Node3D" parent="." unique_id=923789478]
+
+[node name="Floor" type="Area3D" parent="Environment" unique_id=2085722637]
+
+[node name="COL_Floor" type="CollisionShape3D" parent="Environment/Floor" unique_id=1008832378]
+shape = SubResource("BoxShape3D_7fr83")
+
+[node name="MESH_Floor" type="MeshInstance3D" parent="Environment/Floor" unique_id=898582109]
+transform = Transform3D(192, 0, 0, 0, 1, 0, 0, 0, 108, 0, 0, 0)
+mesh = SubResource("BoxMesh_paeh8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=712860662]
+
+[node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1084533512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6)
+
+[node name="MESH_Player" type="MeshInstance3D" parent="KB_Player" unique_id=1109650814]
+mesh = SubResource("CapsuleMesh_tkmsp")
+metadata/_edit_lock_ = true
+
+[node name="COL_Player" type="CollisionShape3D" parent="KB_Player" unique_id=720841968]
+shape = SubResource("CapsuleShape3D_7fr83")
+metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="KB_Player" unique_id=44597019]
+script = SubResource("GDScript_paeh8")
+
+[node name="IDLE" type="Node" parent="KB_Player/StateMachine" unique_id=1234020842]
+
+[node name="WALK" type="Node" parent="KB_Player/StateMachine" unique_id=1776025330]
+script = SubResource("GDScript_8sucx")
+
+[node name="PICKUP" type="Node" parent="KB_Player/StateMachine" unique_id=902702216]
+
+[node name="PUTDOWN" type="Node" parent="KB_Player/StateMachine" unique_id=1376107252]
+
+[node name="CHOP" type="Node" parent="KB_Player/StateMachine" unique_id=1813084138]
+
+[node name="CON_Player" type="CharacterBody3D" parent="." unique_id=36289066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+
+[node name="MESH_Player" type="MeshInstance3D" parent="CON_Player" unique_id=1739421155]
+mesh = SubResource("CapsuleMesh_tkmsp")
+metadata/_edit_lock_ = true
+
+[node name="COL_Player" type="CollisionShape3D" parent="CON_Player" unique_id=1144413660]
+shape = SubResource("CapsuleShape3D_7fr83")
+metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="CON_Player" unique_id=830365155]
+script = SubResource("GDScript_paeh8")
+
+[node name="IDLE" type="Node" parent="CON_Player/StateMachine" unique_id=1075711108]
+
+[node name="WALK" type="Node" parent="CON_Player/StateMachine" unique_id=483349681]
+script = SubResource("GDScript_8sucx")
+
+[node name="PICKUP" type="Node" parent="CON_Player/StateMachine" unique_id=44253682]
+
+[node name="PUTDOWN" type="Node" parent="CON_Player/StateMachine" unique_id=1498715860]
+
+[node name="CHOP" type="Node" parent="CON_Player/StateMachine" unique_id=777732245]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 1, 21.999998, 27.999998)
+fov = 80.0
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1929090013]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1125434577]
+modulate = Color(1, 1, 1, 0.16078432)
+position = Vector2(960, 540)
+texture = ExtResource("1_t33is")
