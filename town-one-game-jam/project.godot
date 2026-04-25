@@ -85,6 +85,11 @@ CON_PUTDOWN={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Areas"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
