@@ -12,14 +12,13 @@ albedo_color = Color(0.26839805, 0.26839802, 0.26839802, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e2cfl"]
-size = Vector3(1.7839355, 1, 2.7667236)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ba57y"]
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
+
+[sub_resource type="GDScript" id="GDScript_paeh8"]
+
+[sub_resource type="GDScript" id="GDScript_8sucx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_76hnt"]
 size = Vector3(2.4423218, 1, 2.4760895)
@@ -56,19 +55,6 @@ transform = Transform3D(-1, -8.2150535e-08, 2.9900352e-08, 0, 0.34202015, 0.9396
 fov = 80.0
 metadata/_edit_lock_ = true
 
-[node name="Chopping_Block" type="Area3D" parent="Environment" unique_id=1189981469 groups=["chopping_block"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4927655, 4.69155)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Chopping_Block" unique_id=1281798288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064331055, 0, -0.07476807)
-shape = SubResource("BoxShape3D_e2cfl")
-metadata/_edit_lock_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Chopping_Block" unique_id=352000544]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
-mesh = SubResource("BoxMesh_ba57y")
-metadata/_edit_lock_ = true
-
 [node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1084533512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -8)
 collision_mask = 0
@@ -82,6 +68,20 @@ metadata/_edit_lock_ = true
 [node name="COL_Player" type="CollisionShape3D" parent="KB_Player" unique_id=720841968]
 shape = SubResource("CapsuleShape3D_7fr83")
 metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="KB_Player" unique_id=44597019]
+script = SubResource("GDScript_paeh8")
+
+[node name="IDLE" type="Node" parent="KB_Player/StateMachine" unique_id=1234020842]
+
+[node name="WALK" type="Node" parent="KB_Player/StateMachine" unique_id=1776025330]
+script = SubResource("GDScript_8sucx")
+
+[node name="PICKUP" type="Node" parent="KB_Player/StateMachine" unique_id=902702216]
+
+[node name="PUTDOWN" type="Node" parent="KB_Player/StateMachine" unique_id=1376107252]
+
+[node name="CHOP" type="Node" parent="KB_Player/StateMachine" unique_id=1813084138]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1929090013]
 visible = false
