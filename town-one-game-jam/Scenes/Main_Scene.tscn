@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_t33is"]
 [ext_resource type="Texture2D" uid="uid://byt28lh8oog1u" path="res://Textures/T_Star.png" id="2_5p0eq"]
 [ext_resource type="Texture2D" uid="uid://b548paqwtsldy" path="res://Textures/T_Circle.png" id="3_4y1r4"]
+[ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="5_6bry8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -150,3 +151,5 @@ visible = false
 modulate = Color(1, 1, 1, 0.16078432)
 position = Vector2(960, 540)
 texture = ExtResource("1_t33is")
+
+[node name="Timer" parent="." unique_id=2098668842 instance=ExtResource("5_6bry8")]
