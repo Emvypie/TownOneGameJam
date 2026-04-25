@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddvt2bf3qiuv2"]
+
+[ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="1_8sucx"]
+[ext_resource type="Script" uid="uid://bagxhbs2oseie" path="res://Jump.gd" id="2_7fr83"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fr83"]
+
+[node name="Main Scene" type="Node3D" unique_id=814078436]
+
+[node name="Environment" type="Node3D" parent="." unique_id=1973778596]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1084533512]
+
+[node name="COL_Player" type="CollisionShape3D" parent="Player" unique_id=720841968]
+shape = SubResource("CapsuleShape3D_7fr83")
+
+[node name="StateMachine" type="Node" parent="Player" unique_id=44597019]
+script = ExtResource("1_8sucx")
+
+[node name="Jump" type="Node" parent="Player/StateMachine" unique_id=1813151454]
+script = ExtResource("2_7fr83")
