@@ -26,6 +26,7 @@ var current_state: EStates:
 			on_current_state_changed.emit(value)
 @onready var hold_position = $"."
 var picked_object = null
+var chopping_block = null
 
 ## -----------------------------------------------------------------------------
 ## Export Variables
@@ -43,10 +44,9 @@ func _ready() -> void:
 		area.body_entered.connect(_on_area_body_entered.bind(area))
 		area.body_exited.connect(_on_area_body_exited.bind(area))
 	
-	#for block in get_tree().get_nodes_in_group("chopping_block"):
-		#block.body_entered.connect(_on_block_body_entered.bind(block))
-		#block.body_exited.connect(_on_area_body_exited.bind(block))
-#
+	for block in get_tree().get_nodes_in_group("chopping_block"):
+		block.body_entered.connect(_on_block_body_entered.bind(block))
+		block.body_exited.connect(_on_block_body_exited.bind(block))
 
 func _on_area_body_entered(body: Node3D, area: Area3D):
 	if body == self:
@@ -54,8 +54,21 @@ func _on_area_body_entered(body: Node3D, area: Area3D):
 		picked_object = area
 		print(picked_object)
 
-#func _on_block_body_
-		
+func _on_area_body_exited(area: Area3D) -> void:
+	pass
+
+func _on_block_body_entered(body: CharacterBody3D, block: Area3D):
+	if body == self:
+		print("about to place onto: ", block.name)
+		chopping_block = block
+
+func _on_block_body_exited(body: CharacterBody3D, area: Area3D):
+	if body == self:
+		print("left body at: ", area.name)
+		area.position.x += 0.0001
+		chopping_block = null
+
+
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 
@@ -121,11 +134,17 @@ func putdown() -> void:
 	print("--------- PUT DOWN STARTED")
 	print("putting down object: ", picked_object)
 	if picked_object != null:
-		# Re-enable physics and return to world
-		picked_object.position.x += 0.0001
-		picked_object.reparent(get_tree().root) # Or your world node
-		picked_object = null
+		if chopping_block != null:
+			# Re-enable physics and return to world
+			picked_object.position.x += 0.0001
+			var tween = create_tween()
+			var top_of_block = chopping_block.global_position + Vector3(0,1,0)
+			tween.tween_property(picked_object, "global_position", top_of_block, 0.2)
+			picked_object.reparent(get_tree().root) # Or your world node
+			picked_object = null
+			chopping_block = null
 	print("--------- PUT DOWN COMPLETED")
+
 
 
 ## Movement Code
@@ -133,15 +152,3 @@ var rotation_direction = 0
 
 func get_input():
 	rotation_direction = Input.get_axis("LEFT", "RIGHT")
-
-#
-#func _on_body_area_entered(area: Area3D) -> void:
-	#pass # Replace with function body.
-#
-#
-#func _on_body_area_exited(area: Area3D) -> void:
-	#pass # Replace with function body.
-
-
-func _on_area_body_exited(area: Area3D) -> void:
-	pass # Replace with function body.

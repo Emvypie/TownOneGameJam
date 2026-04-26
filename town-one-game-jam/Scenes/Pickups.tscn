@@ -13,7 +13,7 @@ albedo_color = Color(0.26839805, 0.26839802, 0.26839802, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2cfl"]
-size = Vector3(1.7839355, 1, 2.7667236)
+size = Vector3(4.124996, 1, 4.869995)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ba57y"]
 
@@ -60,11 +60,24 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4927655, 4.69155)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Chopping_Block" unique_id=1281798288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064331055, 0, -0.07476807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1646328, 0, -0.0345459)
 shape = SubResource("BoxShape3D_e2cfl")
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Chopping_Block" unique_id=352000544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_ba57y")
+metadata/_edit_lock_ = true
+
+[node name="Chopping_Block2" type="Area3D" parent="Environment" unique_id=1211072025 groups=["chopping_block"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.812665, 1.4927655, 8.5355015)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Chopping_Block2" unique_id=1430252674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36509705, 0, -0.28448486)
+shape = SubResource("BoxShape3D_e2cfl")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Chopping_Block2" unique_id=341566350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("BoxMesh_ba57y")
 metadata/_edit_lock_ = true
