@@ -6,7 +6,7 @@
 script = ExtResource("1_2p01c")
 
 [node name="Timer" type="Timer" parent="." unique_id=1828593927]
-wait_time = 100.0
+wait_time = 3.318
 one_shot = true
 
 [node name="Label" type="Label" parent="." unique_id=64107156]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cugk88a2jtcto"]
 
 [ext_resource type="PackedScene" uid="uid://0yven0n4o71o" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
+[ext_resource type="Script" uid="uid://1gbdt0f06it1" path="res://ScoreManager.gd" id="1_xohb6"]
 [ext_resource type="PackedScene" uid="uid://dx5cm26bys813" path="res://Monster_Maker.tscn" id="2_cvavm"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="3_cvavm"]
 [ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Coffin/Coffin.tscn" id="3_vhmom"]
@@ -20,6 +21,7 @@ font_size = 90
 font_size = 90
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
+script = ExtResource("1_xohb6")
 metadata/_edit_lock_ = true
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
