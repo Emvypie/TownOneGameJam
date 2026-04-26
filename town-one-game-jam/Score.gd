@@ -2,12 +2,14 @@ extends Node
 
 @export var score_label: Label
 @export var split30_label: Label
+@export var split45_label: Label
 
 var score = 0
 var time_passed = 0.0
 var wait_time = 3.5
 
 var split_30_done = false
+var split_45_done = false
 var stop_incrementing = false
 
 var peak_rate = 0.0
@@ -28,8 +30,12 @@ var time_to_reset = 2.0
 var reset_timer = 0
 
 func _ready():
+	if time_passed < wait_time:
+		return
 	score_label.text = "Score: 0"
-	split30_label.text = "30s: "
+	split30_label.text = "30 s: "
+	split30_label.text = "45 s: "
+
 
 func _process(delta):
 	time_passed += delta
@@ -41,9 +47,13 @@ func _process(delta):
 	timer.timeout.connect(set_final_score)
 
 	if time_passed >= 30.0 and !split_30_done:
-		split30_label.text = "30s: " + str(score)
+		split30_label.text = "30 s: " + str(score)
 		split_30_done = true
-
+		
+	if time_passed >= 45.0 and !split_45_done:
+		split45_label.text = "45 s: " + str(score)
+		split_45_done = true
+		
 	if time_passed >= next_rate_check and next_rate_check <= total_time:
 		var gained_score = score - previous_check_score
 		var current_rate = gained_score / 10.0
@@ -55,6 +65,8 @@ func _process(delta):
 		next_rate_check += 10.0
 
 func _input(event):
+	if time_passed < wait_time:
+		return
 	if event.is_action_pressed("RESTART"):
 		reset_timer = get_tree().create_timer(0.05)
 		reset_timer.timeout.connect(_reset_game)
