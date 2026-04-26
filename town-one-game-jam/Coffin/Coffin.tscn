@@ -4,18 +4,21 @@
 [ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://Coffin/CoffinOpen.mp3" id="1_bjej6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyx7i"]
-size = Vector3(5, 5, 9)
+size = Vector3(8.706421, 5, 11.237427)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6u1k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0on15"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_16r6p"]
+size = Vector3(3.6283722, 2.5385132, 7.640503)
+
 [node name="Coffin" type="Node3D" unique_id=1815768998]
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1568458476]
+[node name="Trigger_Area3D" type="Area3D" parent="." unique_id=1568458476 groups=["triggers"]]
 
-[node name="COL_Coffin" type="CollisionShape3D" parent="Area3D" unique_id=756849897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="Trigger_Coffin" type="CollisionShape3D" parent="Trigger_Area3D" unique_id=756849897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25506592, 2, -0.21966553)
 shape = SubResource("BoxShape3D_qyx7i")
 
 [node name="MESH_Coffin" type="MeshInstance3D" parent="." unique_id=1150659608]
@@ -29,3 +32,11 @@ visible = false
 explosiveness = 0.7
 process_material = SubResource("ParticleProcessMaterial_h6u1k")
 draw_pass_1 = SubResource("BoxMesh_0on15")
+
+[node name="Colider_Area3D" type="Area3D" parent="." unique_id=1695407721 groups=["colliders"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colider_Area3D" unique_id=198720422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13011932, 1.436676, 0.22894287)
+shape = SubResource("BoxShape3D_16r6p")
