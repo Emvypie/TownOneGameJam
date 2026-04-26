@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b7ooy07p8ng8u"]
+[gd_scene format=4 uid="uid://c23y0xulwmlag"]
 
 [ext_resource type="Script" uid="uid://byjsd42tvg2o0" path="res://Animation/frankenstein.gd" id="1_606q8"]
 [ext_resource type="Material" uid="uid://bqjnk1dsjrsij" path="res://Materials/F_skin.tres" id="2_htmne"]
