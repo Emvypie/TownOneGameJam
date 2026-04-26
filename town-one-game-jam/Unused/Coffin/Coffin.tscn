@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmsugsciwwvyq"]
 
-[ext_resource type="ArrayMesh" uid="uid://dtn1jpxqdv4ww" path="res://Coffin/Coffin.obj" id="1_16r6p"]
-[ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://Coffin/CoffinOpen.mp3" id="1_bjej6"]
+[ext_resource type="ArrayMesh" uid="uid://dtn1jpxqdv4ww" path="res://Unused/Coffin/Coffin.obj" id="1_16r6p"]
+[ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://Unused/Coffin/CoffinOpen.mp3" id="1_bjej6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyx7i"]
 size = Vector3(8.706421, 5, 11.237427)
