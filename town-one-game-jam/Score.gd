@@ -10,12 +10,15 @@ var time_passed = 0.0
 
 var split_30_done = false
 var split_60_done = false
+var stop_incrementing = false
 
 var peak_rate = 0.0
 var previous_check_score = 0
 var next_rate_check = 10.0
 var peak_shown = false
 var frankenstein = null
+var final_score = null
+var game_over = null
 
 func _ready():
 	score_label.text = "Score: 0"
@@ -25,9 +28,8 @@ func _ready():
 
 func _process(delta):
 	time_passed += delta
-
-	if Input.is_action_just_pressed("CRANK"):
-		add_score()
+	var timer = $"../Timer/Timer"
+	timer.timeout.connect(set_final_score)
 
 	if time_passed >= 30.0 and !split_30_done:
 		split30_label.text = "30s: " + str(score)
@@ -37,7 +39,7 @@ func _process(delta):
 		split60_label.text = "1m: " + str(score)
 		split_60_done = true
 
-	if time_passed >= next_rate_check and next_rate_check <= 90.0:
+	if time_passed >= next_rate_check and next_rate_check <= 60.0:
 		var gained_score = score - previous_check_score
 		var current_rate = gained_score / 10.0
 
@@ -52,22 +54,33 @@ func _process(delta):
 		peak_shown = true
 
 func _input(event):
-	frankenstein = $"../Frankenstein/AnimationPlayer"
-	if event.is_action_pressed("PLAYER_B_BTN_2"):
-		frankenstein.play("Right punch")
-		add_score()
-		play_punch_sound()
+	if time_passed < 60.0:
+		frankenstein = $"../Frankenstein/AnimationPlayer"
+		if event.is_action_pressed("PLAYER_B_BTN_2"):
+			frankenstein.play("Right punch")
+			add_score()
+			play_punch_sound()
 
-	if event.is_action_pressed("PLAYER_B_BTN_1"):
-		frankenstein.play("Left punch")
-		add_score()
-		play_punch_sound()
+		if event.is_action_pressed("PLAYER_B_BTN_1"):
+			frankenstein.play("Left punch")
+			add_score()
+			play_punch_sound()
 
 
 func add_score():
-	score += 1
-	score_label.text = "Score: " + str(score)
+	if time_passed < 60.0:
+		score += 1
+		score_label.text = "Score: " + str(score)
 
 func play_punch_sound():
 	var punch_sound = $"../Frankenstein/Punch"
 	punch_sound.play()
+
+func set_final_score():
+	#print
+	final_score = $"../GameOverScene/FinalScore"
+	final_score.text = "Score: " + str(score)
+	final_score = $"../GameOverScene/PeakRate"
+	final_score.text = "Peak Rate: " + str(peak_rate)
+
+	return score
