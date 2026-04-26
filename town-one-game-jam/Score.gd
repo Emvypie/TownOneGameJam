@@ -27,7 +27,7 @@ var time_to_reset = 2.0
 var reset_timer = 0
 
 func _ready():
-	score_label.text = "Score: 0"
+	score_label.text = "0"
 	split30_label.text = "30s: "
 
 func _process(delta):
@@ -101,7 +101,7 @@ func _reset_game() -> void:
 func add_score():
 	if time_passed < total_time:
 		score += 1
-		score_label.text = "Score: " + str(score)
+		score_label.text = str(score)
 
 func play_punch_sound():
 	var punch_sound = $"../Frankenstein/Punch"
