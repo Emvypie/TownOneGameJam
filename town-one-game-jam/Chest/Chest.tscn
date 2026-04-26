@@ -2,6 +2,12 @@
 
 [ext_resource type="ArrayMesh" uid="uid://dkswpr2xnolfn" path="res://Chest/Box.obj" id="1_orixs"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orixs"]
+albedo_color = Color(0.56058776, 0.33440274, 0.14764714, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w0a8"]
+albedo_color = Color(0.54601604, 0.23142326, 0.157882, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kau7x"]
 size = Vector3(7.685791, 5, 10.34668)
 
@@ -13,6 +19,8 @@ size = Vector3(2.987091, 3.3149414, 6.633728)
 [node name="MESH_Bed" type="MeshInstance3D" parent="." unique_id=1571655593]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 mesh = ExtResource("1_orixs")
+surface_material_override/0 = SubResource("StandardMaterial3D_orixs")
+surface_material_override/1 = SubResource("StandardMaterial3D_3w0a8")
 
 [node name="Trigger" type="Area3D" parent="." unique_id=792888718 groups=["triggers"]]
 
