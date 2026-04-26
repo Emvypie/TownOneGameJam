@@ -21,6 +21,7 @@ signal on_current_state_changed(state: EStates)
 @onready var hold_position = $"."
 @onready var player_a_label = $"../../PlayerALabel"
 @onready var player_b_label = $"../../PlayerBLabel"
+@onready var timer = $"../../../Timer"
 
 # Private vars
 var initial_state: EStates = EStates.IDLE
@@ -63,7 +64,6 @@ func _ready() -> void:
 		block.body_entered.connect(_on_block_body_entered.bind(block))
 		block.body_exited.connect(_on_block_body_exited.bind(block))
 
-
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 
@@ -76,6 +76,12 @@ func _physics_process(delta: float) -> void:
 			pickup()
 
 	get_input()
+
+func _process(delta) -> void:
+	#print("timer: ", timer.get_child(0))
+	if player_a_score == 0:
+		ScoreManager.load_score()
+	timer.get_child(0).timeout.connect(_on_timer_timeout)
 
 	
 func _input(event):
