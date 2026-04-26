@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cugk88a2jtcto"]
 
-[ext_resource type="PackedScene" uid="uid://dd86qwmuex3bm" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
-[ext_resource type="PackedScene" uid="uid://l51eoeoarn05" path="res://Monster_Maker.tscn" id="2_cvavm"]
+[ext_resource type="PackedScene" uid="uid://0yven0n4o71o" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
+[ext_resource type="PackedScene" uid="uid://dx5cm26bys813" path="res://Monster_Maker.tscn" id="2_cvavm"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="3_cvavm"]
 [ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Coffin/Coffin.tscn" id="3_vhmom"]
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://SawStation/CuttingBed.tscn" id="4_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="4_vhmom"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="5_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bwqhgwe3wgjqm" path="res://Room.tscn" id="5_ufbp1"]
+[ext_resource type="PackedScene" uid="uid://bcg3yxp10k41m" path="res://Frankenstein/Frankenstein.tscn" id="8_0ieg5"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Chest/Chest.tscn" id="9_86mp4"]
 [ext_resource type="PackedScene" uid="uid://d13gue3y1rivb" path="res://Player.tscn" id="11_0ieg5"]
 
@@ -72,6 +73,15 @@ sky_mode = 1
 
 [node name="Room" parent="Environment" unique_id=2130058203 instance=ExtResource("5_ufbp1")]
 
+[node name="CuttingBed2" parent="Environment" unique_id=1242671136 instance=ExtResource("9_86mp4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, -11)
+
+[node name="Player" parent="Environment" unique_id=852903279 instance=ExtResource("11_0ieg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
+
+[node name="Frankenstein" parent="Environment" unique_id=229427808 instance=ExtResource("8_0ieg5")]
+transform = Transform3D(-4.3711385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 0, 15, 1.0000001, -11)
+
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1929090013]
@@ -85,9 +95,3 @@ texture = ExtResource("3_cvavm")
 [node name="Timer" parent="." unique_id=2098668842 instance=ExtResource("4_vhmom")]
 
 [node name="Score" parent="." unique_id=574491579 instance=ExtResource("5_86mp4")]
-
-[node name="CuttingBed" parent="." unique_id=1242671136 instance=ExtResource("9_86mp4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, -11)
-
-[node name="Player" parent="." unique_id=852903279 instance=ExtResource("11_0ieg5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)

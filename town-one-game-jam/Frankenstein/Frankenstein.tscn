@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bcg3yxp10k41m"]
+
+[ext_resource type="ArrayMesh" uid="uid://b2yg21fydplcj" path="res://Frankenstein/Frankenstein.obj" id="1_tckye"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmdk1"]
+size = Vector3(3, 5, 2)
+
+[node name="Frankenstein" type="Area3D" unique_id=229427808]
+
+[node name="COL_Frank" type="CollisionShape3D" parent="." unique_id=1917046083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.5)
+shape = SubResource("BoxShape3D_dmdk1")
+
+[node name="MESH_Frankenstein" type="MeshInstance3D" parent="." unique_id=353739147]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, -1)
+mesh = ExtResource("1_tckye")
