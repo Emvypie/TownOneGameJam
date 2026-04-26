@@ -5,8 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://Unused/SawStation/CuttingBed.tscn" id="4_rwpgr"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Unused/Chest/Chest.tscn" id="5_4wrjy"]
 [ext_resource type="Material" uid="uid://cjx0s84ul0nv6" path="res://Materials/M_Outline.tres" id="6_c7ed7"]
-[ext_resource type="PackedScene" path="res://Mummy.tscn" id="6_pp3vb"]
-[ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="7_7ag3j"]
+[ext_resource type="PackedScene" uid="uid://ccpg1ufr6v4" path="res://Scenes/FrankVMumMain.tscn" id="6_pp3vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -187,7 +186,7 @@ script = SubResource("GDScript_8sucx")
 [node name="CHOP" type="Node" parent="CON_Player/StateMachine" unique_id=777732245]
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
-transform = Transform3D(1, 0, 0, 0, 0.9533225, 0.30195397, 0, -0.30195397, 0.9533225, -0.7423749, 9.021724, 56.569744)
+transform = Transform3D(1, 0, 0, 0, 0.9533225, 0.30195397, 0, -0.30195397, 0.9533225, -6.052754, 9.021724, 55.123)
 fov = 68.1
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
@@ -313,8 +312,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.489216, 1, 14.072617)
 [node name="MonsterMaker2" parent="SceneSet/Maker" unique_id=1558019669 instance=ExtResource("3_2n7ms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.727547, 0)
 
-[node name="Mummy" parent="." unique_id=825093918 instance=ExtResource("6_pp3vb")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.928061, 0.54992205, 46.115833)
-
-[node name="Frankenstein" parent="." unique_id=854585420 instance=ExtResource("7_7ag3j")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0.5559535, 45.725826)
+[node name="Main Scene" parent="." unique_id=1549260155 instance=ExtResource("6_pp3vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07277, -0.082678795, 54.543438)
