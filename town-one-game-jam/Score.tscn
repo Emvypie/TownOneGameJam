@@ -12,25 +12,24 @@ offset_right = 512.0
 offset_bottom = 209.0
 theme_override_colors/font_color = Color(0.62584263, 0, 0.26994127, 1)
 theme_override_font_sizes/font_size = 150
-text = "200"
-horizontal_alignment = 1
+text = "Score: 0"
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="30" type="Label" parent="." unique_id=327299073]
+offset_left = 19.0
 offset_top = 192.0
-offset_right = 152.0
+offset_right = 171.0
 offset_bottom = 295.0
 theme_override_font_sizes/font_size = 50
 text = "30 s: "
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="30s2" type="Label" parent="." unique_id=485722762]
+offset_left = 19.0
 offset_top = 240.0
-offset_right = 152.0
+offset_right = 171.0
 offset_bottom = 343.0
 theme_override_font_sizes/font_size = 50
 text = "45 s: "
-horizontal_alignment = 1
 vertical_alignment = 1

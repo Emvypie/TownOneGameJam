@@ -29,7 +29,7 @@ func shake_rotation(max_rotation_degrees: float, duration: float) -> void:
 	is_shaking = false
 
 func _ready():
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(3.5).timeout
 	can_input = true
 
 func _input(event):
