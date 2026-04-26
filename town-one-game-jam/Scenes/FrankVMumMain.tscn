@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dipslow7j6f05"]
+
+[ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="4_1pun0"]
+[ext_resource type="PackedScene" uid="uid://cnqwx54q5mon1" path="res://Mummy.tscn" id="5_vffgo"]
+[ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
+[ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vffgo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1pun0"]
+
+[node name="Main Scene" type="Node3D" unique_id=814078436]
+metadata/_edit_lock_ = true
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
+transform = Transform3D(-1, -8.215054e-08, 2.9900352e-08, -7.5710346e-08, 0.9848078, 0.17364812, -4.3711385e-08, 0.17364812, -0.9848078, 0, 7, -17)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
+
+[node name="Timer" parent="." unique_id=2098668842 instance=ExtResource("10_c7ks4")]
+
+[node name="Score" parent="." unique_id=574491579 instance=ExtResource("11_ik3go")]
+
+[node name="Mummy" parent="." unique_id=825093918 instance=ExtResource("5_vffgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.928061, 0.54992205, -7.6099944)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=461246448]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1211123413]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -49.415413, 0)
+shape = SubResource("BoxShape3D_vffgo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1694309467]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_1pun0")
+
+[node name="Frankenstein" parent="." unique_id=854585420 instance=ExtResource("4_1pun0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0.5559535, -8)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=272549537]
+transform = Transform3D(1, 0, 0, 0, 0.8475668, 0.5306887, 0, -0.5306887, 0.8475668, 0, 0, 0)
