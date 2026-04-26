@@ -1,11 +1,16 @@
 extends Node3D
 
+@export var vfx_list: Array[GPUParticles3D]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	for vfx in vfx_list:
+		if vfx:
+			vfx.emitting = false
 
+func _input(event):
+	if event is InputEventKey and event.pressed and not event.echo:
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		if event.keycode == KEY_PERIOD:
+			for vfx in vfx_list:
+				if vfx:
+					vfx.emitting = true
