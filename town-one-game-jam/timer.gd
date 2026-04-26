@@ -18,5 +18,7 @@ func _process(delta):
 	label.text = "%02d:%02d" % time_left()
 
 func _on_timer_timeout():
-	#get_tree().change_scene_to_file("res://GameOver_Scene.tscn")
+	get_tree().change_scene_to_file("res://GameOver_Scene.tscn")
+	#var final_score = $"../Score".get_final_score()
+	#$Score.text = "Score: " + str(final_score)
 	pass
