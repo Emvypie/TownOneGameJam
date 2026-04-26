@@ -7,13 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://SawStation/CuttingBed.tscn" id="4_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="4_vhmom"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="5_86mp4"]
+[ext_resource type="PackedScene" uid="uid://bwqhgwe3wgjqm" path="res://Room.tscn" id="5_ufbp1"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Chest/Chest.tscn" id="9_86mp4"]
 [ext_resource type="PackedScene" uid="uid://d13gue3y1rivb" path="res://Player.tscn" id="11_0ieg5"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
-size = Vector3(17, 1, 15)
-
-[sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 metadata/_edit_lock_ = true
@@ -23,16 +19,6 @@ transform = Transform3D(-1, -8.2150535e-08, 2.9900352e-08, 0, 0.34202015, 0.9396
 fov = 80.0
 
 [node name="Environment" type="Node3D" parent="." unique_id=923789478]
-
-[node name="Room" type="StaticBody3D" parent="Environment" unique_id=2010702959]
-
-[node name="COL_Floor" type="CollisionShape3D" parent="Environment/Room" unique_id=1008832378]
-shape = SubResource("BoxShape3D_7fr83")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Room" unique_id=2138170876]
-transform = Transform3D(40, 0, 0, 0, 0.8, 0, 0, 0, 32, 0, 0, 0)
-mesh = SubResource("BoxMesh_t33is")
-metadata/_edit_lock_ = true
 
 [node name="Lever" parent="Environment" unique_id=1569971934 instance=ExtResource("1_t5ss4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 3, 8)
@@ -83,6 +69,8 @@ spot_angle = 72.95169
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 13, 0)
 light_color = Color(0.67698437, 0.81521237, 0.9211615, 1)
 sky_mode = 1
+
+[node name="Room" parent="Environment" unique_id=2130058203 instance=ExtResource("5_ufbp1")]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
 
