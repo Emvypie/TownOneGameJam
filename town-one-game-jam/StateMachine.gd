@@ -35,8 +35,10 @@ var chopping_block = null
 @export_group("3D")
 @export var rotation_speed: float = 10.0
 @export var camera_pivot: Node3D
-@export var speed = 400
+@export var speed = 600
 var move_input: Vector2 = Vector2.ZERO
+# colliders need to be added
+# outside of the plane - add bounds
 
 func _ready() -> void:
 	current_state = initial_state
