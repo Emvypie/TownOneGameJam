@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8ueve3g3x5xd"
-path="res://.godot/imported/Idlee.fbx-14b11650e68188e6af41489210302752.scn"
+uid="uid://dokysxhpof4u1"
+path="res://.godot/imported/Frankenstein_T-Pose_1.fbx-919e13f2edad4c503fbb755f32dced90.scn"
 
 [deps]
 
-source_file="res://Animation/Idlee.fbx"
-dest_files=["res://.godot/imported/Idlee.fbx-14b11650e68188e6af41489210302752.scn"]
+source_file="res://Animation/Frankenstein_T-Pose_1.fbx"
+dest_files=["res://.godot/imported/Frankenstein_T-Pose_1.fbx-919e13f2edad4c503fbb755f32dced90.scn"]
 
 [params]
 
