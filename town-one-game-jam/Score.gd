@@ -56,11 +56,18 @@ func _input(event):
 	if event.is_action_pressed("PLAYER_B_BTN_2"):
 		frankenstein.play("Right punch")
 		add_score()
+		play_punch_sound()
 
 	if event.is_action_pressed("PLAYER_B_BTN_1"):
 		frankenstein.play("Left punch")
 		add_score()
+		play_punch_sound()
+
 
 func add_score():
 	score += 1
 	score_label.text = "Score: " + str(score)
+
+func play_punch_sound():
+	var punch_sound = $"../Frankenstein/Punch"
+	punch_sound.play()
