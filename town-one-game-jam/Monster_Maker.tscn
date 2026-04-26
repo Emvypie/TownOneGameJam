@@ -1,19 +1,17 @@
 [gd_scene format=3 uid="uid://l51eoeoarn05"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_yllnb"]
+[ext_resource type="ArrayMesh" uid="uid://dpbbhjawt0pbx" path="res://Tank/Tank.obj" id="1_fdiap"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_fdiap"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yllnb"]
 
 [node name="MonsterMaker" type="Node3D" unique_id=521857803]
 
 [node name="MESH_TUBE" type="MeshInstance3D" parent="." unique_id=778773635]
+mesh = ExtResource("1_fdiap")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=855369471]
 
 [node name="COL_Maker" type="CollisionShape3D" parent="Area3D" unique_id=283413021]
 shape = SubResource("CylinderShape3D_yllnb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=259001200]
-shape = SubResource("CylinderShape3D_fdiap")
 
 [node name="SFX_Cooking" type="AudioStreamPlayer3D" parent="." unique_id=1006439843]

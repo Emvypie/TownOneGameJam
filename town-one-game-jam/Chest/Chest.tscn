@@ -1,10 +1,14 @@
-[gd_scene format=3 uid="uid://djil1xktjkbxq"]
+[gd_scene format=3 uid="uid://dbqk8ih4ri2y7"]
+
+[ext_resource type="ArrayMesh" uid="uid://dkswpr2xnolfn" path="res://Chest/Box.obj" id="1_orixs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kau7x"]
 
 [node name="CuttingBed" type="Node3D" unique_id=1539972660]
 
 [node name="MESH_Bed" type="MeshInstance3D" parent="." unique_id=1571655593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = ExtResource("1_orixs")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=792888718]
 
