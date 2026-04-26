@@ -2,36 +2,31 @@
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
 
-[node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split30_label", "split60_label", "peak_rate_label")]
+[node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split30_label")]
 script = ExtResource("1_7urb4")
 score_label = NodePath("Main Score")
 split30_label = NodePath("30 s")
-split60_label = NodePath("1 m")
-peak_rate_label = NodePath("Peak Rate")
 
 [node name="Main Score" type="Label" parent="." unique_id=253219591]
-offset_left = 39.0
-offset_top = -9.0
-offset_right = 531.0
-offset_bottom = 200.0
-theme_override_font_sizes/font_size = 100
+offset_right = 512.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0.62584263, 0, 0.26994127, 1)
+theme_override_font_sizes/font_size = 150
 text = "200"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="30 s" type="Label" parent="." unique_id=327299073]
-offset_left = 39.0
-offset_top = -9.0
-offset_right = 531.0
-offset_bottom = 390.0
+offset_top = 192.0
+offset_right = 184.0
+offset_bottom = 295.0
 theme_override_font_sizes/font_size = 75
 text = "30 s: "
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="1 m" type="Label" parent="." unique_id=1528602808]
 visible = false
-offset_left = 40.0
-offset_top = 84.0
 offset_right = 532.0
 offset_bottom = 483.0
 theme_override_font_sizes/font_size = 75
