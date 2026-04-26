@@ -15,6 +15,7 @@ albedo_color = Color(0.49026036, 0.19742808, 0.14525467, 1)
 albedo_color = Color(0.20105165, 0.31765926, 0.41490343, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wareu"]
+albedo_color = Color(0.31989738, 0.3605285, 0.41651905, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kau7x"]
 size = Vector3(8.624832, 3, 13.196838)

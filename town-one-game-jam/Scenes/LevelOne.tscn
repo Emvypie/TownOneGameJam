@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://cugk88a2jtcto"]
+[gd_scene format=3 uid="uid://e1rgsdq3bcvd"]
 
-[ext_resource type="PackedScene" uid="uid://0yven0n4o71o" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
-[ext_resource type="PackedScene" uid="uid://dx5cm26bys813" path="res://Monster_Maker.tscn" id="2_cvavm"]
+[ext_resource type="PackedScene" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
+[ext_resource type="PackedScene" uid="uid://ctirkdcbgh76c" path="res://Monster_Maker.tscn" id="2_cvavm"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="3_cvavm"]
 [ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Coffin/Coffin.tscn" id="3_vhmom"]
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://SawStation/CuttingBed.tscn" id="4_86mp4"]
-[ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="4_vhmom"]
-[ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="5_86mp4"]
-[ext_resource type="PackedScene" uid="uid://bwqhgwe3wgjqm" path="res://Room.tscn" id="5_ufbp1"]
+[ext_resource type="PackedScene" path="res://Timer.tscn" id="4_vhmom"]
+[ext_resource type="PackedScene" path="res://Score.tscn" id="5_86mp4"]
+[ext_resource type="PackedScene" uid="uid://b5q8a53kt5pnx" path="res://Room.tscn" id="5_ufbp1"]
 [ext_resource type="PackedScene" uid="uid://bcg3yxp10k41m" path="res://Frankenstein/Frankenstein.tscn" id="8_0ieg5"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Chest/Chest.tscn" id="9_86mp4"]
-[ext_resource type="PackedScene" uid="uid://d13gue3y1rivb" path="res://Player.tscn" id="11_0ieg5"]
+[ext_resource type="PackedScene" uid="uid://53ycihg4k0iq" path="res://Player.tscn" id="11_0ieg5"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 metadata/_edit_lock_ = true
@@ -58,7 +58,7 @@ spot_angle = 72.95169
 
 [node name="L_SawTable3" type="SpotLight3D" parent="Environment/Lighting" unique_id=1990045750]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1, 8, -2)
-light_color = Color(2.2910237e-05, 0.9903118, 0.99742144, 1)
+light_color = Color(0.9768105, 0.9999998, 0.9994249, 1)
 light_energy = 3.46
 light_indirect_energy = 12.705
 light_volumetric_fog_energy = 0.832
