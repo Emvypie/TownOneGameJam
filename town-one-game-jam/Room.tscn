@@ -7,11 +7,11 @@ size = Vector3(41, 1, 33)
 
 [node name="Room" type="Node3D" unique_id=2130058203]
 
-[node name="Room" type="StaticBody3D" parent="." unique_id=1229261991]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1229261991]
 
-[node name="COL_Floor" type="CollisionShape3D" parent="Room" unique_id=1481176877]
+[node name="COL_Floor" type="CollisionShape3D" parent="Floor" unique_id=1481176877]
 shape = SubResource("BoxShape3D_musdo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room" unique_id=866354412]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=866354412]
 transform = Transform3D(40, 0, 0, 0, 0.8, 0, 0, 0, 32, 0, 0, 0)
 mesh = SubResource("BoxMesh_gw2vq")
