@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f88eyw0k7m2f"]
 
 [ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="4_1pun0"]
-[ext_resource type="AudioStream" uid="uid://bxij3wfabsdgd" path="res://Unused/Dispenser/SFX Punch.wav" id="5_ogt3e"]
+[ext_resource type="AudioStream" uid="uid://cbj634jxsgaxf" path="res://SFX placeholder punch .wav" id="5_ogt3e"]
 [ext_resource type="PackedScene" uid="uid://cnqwx54q5mon1" path="res://Mummy.tscn" id="5_vffgo"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
