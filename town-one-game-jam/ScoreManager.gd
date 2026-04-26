@@ -14,7 +14,7 @@ func update_score(user, new_score):
 	if user in user_score_dict:
 		if new_score > user_score_dict[user]:
 			user_high_score = user_score_dict[user]
-			
+
 	if new_score > user_high_score:
 		user_score_dict[user] = new_score
 
@@ -26,7 +26,6 @@ func save_score():
 	file.store_var(user_score_dict)
 	print(user_score_dict)
 	file.close()
-	#print("saved")
 	load_score()
 
 func load_score():

@@ -109,3 +109,18 @@ position = Vector2(960, 540)
 [node name="Timer" parent="." unique_id=2098668842 instance=ExtResource("4_vhmom")]
 
 [node name="Score" parent="." unique_id=574491579 instance=ExtResource("5_86mp4")]
+
+[node name="Leaderboard" type="CanvasLayer" parent="." unique_id=1638098712]
+
+[node name="Control" type="Control" parent="Leaderboard" unique_id=119582623]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 31.0
+offset_right = 1884.0
+offset_bottom = 1047.0
+
+[node name="Label" type="Label" parent="Leaderboard" unique_id=675114028]
+offset_top = 45.0
+offset_right = 1034.0
+offset_bottom = 348.0

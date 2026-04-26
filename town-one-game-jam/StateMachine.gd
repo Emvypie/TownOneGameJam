@@ -22,6 +22,8 @@ signal on_current_state_changed(state: EStates)
 @onready var player_a_label = $"../../PlayerALabel"
 @onready var player_b_label = $"../../PlayerBLabel"
 @onready var timer = $"../../../Timer"
+#@onready var game_over_scene = get_tree().get("res://GameOver_Scene.tscn")
+
 
 # Private vars
 var initial_state: EStates = EStates.IDLE
@@ -38,7 +40,8 @@ var picked_object = null
 var chopping_block = null
 var player_a_score = 0
 var player_b_score = 0
-	
+var leaderboard = null
+
 var move_input: Vector2 = Vector2.ZERO
 
 
@@ -55,6 +58,8 @@ var move_input: Vector2 = Vector2.ZERO
 ## Predefined function overwrites
 
 func _ready() -> void:
+	leaderboard = $"../../../Leaderboard/Control"
+	leaderboard.visible = false
 	current_state = initial_state
 	for area in get_tree().get_nodes_in_group("triggers"):
 		area.body_entered.connect(_on_area_body_entered.bind(area))
@@ -114,12 +119,10 @@ func _on_block_body_exited(body: CharacterBody3D, area: Area3D):
 		area.position.x += 0.0001
 		chopping_block = null
 
-
 func _on_timer_timeout():
-
 	ScoreManager.update_score("playera", player_a_score)
 	ScoreManager.update_score("playerb", player_b_score)
-
+	#update_leaderboard()
 	# Update global score
 
 
@@ -194,3 +197,10 @@ func update_labels(player: String):
 		player_b_label.text = "Player B: " + str(player_b_score)
 	#ScoreManager.update_score(player_a_score)
 		
+
+# Leaderboard
+#func update_leaderboard():
+	#leaderboard.visible = true
+	#print("visible: ", leaderboard)
+	#get_tree().paused = true
+	#print("gos: ", game_over_scene)
