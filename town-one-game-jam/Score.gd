@@ -5,6 +5,7 @@ extends Node
 
 var score = 0
 var time_passed = 0.0
+var wait_time = 3.5
 
 var split_30_done = false
 var stop_incrementing = false
@@ -27,11 +28,15 @@ var time_to_reset = 2.0
 var reset_timer = 0
 
 func _ready():
-	score_label.text = "0"
+	score_label.text = "Score: 0"
 	split30_label.text = "30s: "
 
 func _process(delta):
 	time_passed += delta
+
+	if time_passed < wait_time:
+		return
+		
 	var timer = $"../Timer/Timer"
 	timer.timeout.connect(set_final_score)
 
@@ -53,7 +58,7 @@ func _input(event):
 	if event.is_action_pressed("RESTART"):
 		reset_timer = get_tree().create_timer(0.05)
 		reset_timer.timeout.connect(_reset_game)
-		
+
 	if time_passed < total_time:
 		frankenstein = $"../Frankenstein/AnimationPlayer"
 		right_beam = $"../Frankenstein/RightTrack_GPUParticles3D3"
@@ -101,7 +106,7 @@ func _reset_game() -> void:
 func add_score():
 	if time_passed < total_time:
 		score += 1
-		score_label.text = str(score)
+		score_label.text = "Score: " + str(score)
 
 func play_punch_sound():
 	var punch_sound = $"../Frankenstein/Punch"
