@@ -7,7 +7,6 @@ var score = 0
 var time_passed = 0.0
 
 var split_30_done = false
-var split_60_done = false
 var stop_incrementing = false
 
 var peak_rate = 0.0
@@ -30,9 +29,6 @@ func _process(delta):
 	if time_passed >= 30.0 and !split_30_done:
 		split30_label.text = "30s: " + str(score)
 		split_30_done = true
-
-	if time_passed >= 60.0 and !split_60_done:
-		split_60_done = true
 
 	if time_passed >= next_rate_check and next_rate_check <= 60.0:
 		var gained_score = score - previous_check_score
