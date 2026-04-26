@@ -1,16 +1,50 @@
-[gd_scene format=3 uid="uid://csyejvqx55p5t"]
+[gd_scene format=3 uid="uid://b5i3fd73beb57"]
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
 
-[node name="Score" type="Node" unique_id=574491579]
+[node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split30_label", "split60_label", "peak_rate_label")]
 script = ExtResource("1_7urb4")
+score_label = NodePath("Main Score")
+split30_label = NodePath("30 s")
+split60_label = NodePath("1 m")
+peak_rate_label = NodePath("Peak Rate")
 
-[node name="Label" type="Label" parent="." unique_id=253219591]
+[node name="Main Score" type="Label" parent="." unique_id=253219591]
 offset_left = 1399.0
 offset_top = -37.0
 offset_right = 1891.0
 offset_bottom = 172.0
 theme_override_font_sizes/font_size = 100
-text = "Score: 200"
+text = "200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="30 s" type="Label" parent="." unique_id=327299073]
+offset_left = 1399.0
+offset_top = -37.0
+offset_right = 1891.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 75
+text = "30 s: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1 m" type="Label" parent="." unique_id=1528602808]
+offset_left = 1400.0
+offset_top = 56.0
+offset_right = 1892.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 75
+text = "1 m: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Peak Rate" type="Label" parent="." unique_id=1652339902]
+offset_left = 1440.0
+offset_top = 680.0
+offset_right = 1932.0
+offset_bottom = 1079.0
+theme_override_font_sizes/font_size = 75
+text = "1 m: "
 horizontal_alignment = 1
 vertical_alignment = 1

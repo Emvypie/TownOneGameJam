@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://bfvi6skjovqnq"]
 
-[ext_resource type="Shader" uid="uid://cnvoebjuvxcf" path="res://Shaders/VibeShader.tres" id="1_4wrjy"]
-[ext_resource type="Texture2D" uid="uid://b7cnlbhgrfwya" path="res://Textures/T_Skull.png" id="2_c7ed7"]
-[ext_resource type="Texture2D" uid="uid://b548paqwtsldy" path="res://Textures/T_Circle.png" id="3_pp3vb"]
-[ext_resource type="Texture2D" uid="uid://byt28lh8oog1u" path="res://Textures/T_Star.png" id="4_7ag3j"]
+[ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="3_2n7ms"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="5_0in7m"]
 [ext_resource type="Material" uid="uid://cjx0s84ul0nv6" path="res://Materials/M_Outline.tres" id="6_c7ed7"]
-[ext_resource type="PackedScene" uid="uid://b8ueve3g3x5xd" path="res://Animation/Idlee.fbx" id="7_pp3vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -16,14 +12,6 @@ size = Vector3(17, 1, 15)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6bry8"]
-render_priority = 0
-shader = ExtResource("1_4wrjy")
-shader_parameter/Vibe_Color = Color(0.277967, 0.132855, 0.97134, 1)
-shader_parameter/Vibe_Color_INT = 50.0
-shader_parameter/Vibe_Base_STR = 0.8
-shader_parameter/Vibe_Texture_Size2 = Vector2(50, 50)
-shader_parameter/Vibe_Texture_Pan_SPD = Vector2(0.005, 0.005)
-shader_parameter/Vibe_Texture_Size = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x2kcs"]
 
@@ -39,7 +27,6 @@ scale_max = 0.099999994
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bry8"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_c7ed7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_4y1r4"]
 material = SubResource("StandardMaterial3D_6bry8")
@@ -49,28 +36,18 @@ size = Vector2(10, 10)
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.7215243, 0.5240307, 1.3616757, 0.5882353)
-albedo_texture = ExtResource("3_pp3vb")
 
 [sub_resource type="QuadMesh" id="QuadMesh_7h23t"]
 material = SubResource("StandardMaterial3D_1l8qe")
 size = Vector2(3, 3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x2kcs"]
-render_priority = 0
-shader = ExtResource("1_4wrjy")
-shader_parameter/Vibe_Color = Color(0.62157416, 0.27111262, 0.046980225, 1)
-shader_parameter/Vibe_Color_INT = 50.0
-shader_parameter/Vibe_Base_STR = 0.8
-shader_parameter/Vibe_Texture_Size2 = Vector2(50, 50)
-shader_parameter/Vibe_Texture_Pan_SPD = Vector2(0.005, 0.005)
-shader_parameter/Vibe_Texture_Size = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1l8qe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2kcs"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("4_7ag3j")
 
 [sub_resource type="QuadMesh" id="QuadMesh_x2kcs"]
 material = SubResource("StandardMaterial3D_x2kcs")
@@ -80,7 +57,6 @@ size = Vector2(10, 10)
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1.3618232, 0.53498095, 0.21372372, 0.39215687)
-albedo_texture = ExtResource("3_pp3vb")
 grow_amount = 10.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_6bry8"]
@@ -218,5 +194,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0883436, 0)
 mesh = SubResource("SphereMesh_4wrjy")
 surface_material_override/0 = ExtResource("6_c7ed7")
 
-[node name="Idlee" parent="." unique_id=570370804 instance=ExtResource("7_pp3vb")]
+[node name="Idlee" parent="." unique_id=570370804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.720072, 2.0474062, 3.4823265)
+
+[node name="Frankenstein" parent="." unique_id=854585420 instance=ExtResource("3_2n7ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.770092, 0, -0.10241699)
