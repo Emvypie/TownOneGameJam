@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dokysxhpof4u1"
-path="res://.godot/imported/Frankenstein_T-Pose_1.fbx-919e13f2edad4c503fbb755f32dced90.scn"
+uid="uid://droii28winmc3"
+path="res://.godot/imported/Mummy_1.fbx-c9ce7fb54b06e95d23e6a89eba7943e2.scn"
 
 [deps]
 
-source_file="res://Animation/Frankenstein_T-Pose_1.fbx"
-dest_files=["res://.godot/imported/Frankenstein_T-Pose_1.fbx-919e13f2edad4c503fbb755f32dced90.scn"]
+source_file="res://Animation/Mummy_1.fbx"
+dest_files=["res://.godot/imported/Mummy_1.fbx-c9ce7fb54b06e95d23e6a89eba7943e2.scn"]
 
 [params]
 

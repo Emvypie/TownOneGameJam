@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfvi6skjovqnq"]
 
 [ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="3_2n7ms"]
-[ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="5_0in7m"]
+[ext_resource type="PackedScene" uid="uid://cnjohp81vug2v" path="res://Animation/Mummy.tscn" id="3_rwpgr"]
 [ext_resource type="Material" uid="uid://cjx0s84ul0nv6" path="res://Materials/M_Outline.tres" id="6_c7ed7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
@@ -185,7 +185,6 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1125434577]
 modulate = Color(1, 1, 1, 0.16078432)
 position = Vector2(960, 540)
-texture = ExtResource("5_0in7m")
 
 [node name="Object" type="Node3D" parent="." unique_id=2120863843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0883436, 0)
@@ -194,8 +193,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0883436, 0)
 mesh = SubResource("SphereMesh_4wrjy")
 surface_material_override/0 = ExtResource("6_c7ed7")
 
-[node name="Idlee" parent="." unique_id=570370804]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.720072, 2.0474062, 3.4823265)
-
 [node name="Frankenstein" parent="." unique_id=854585420 instance=ExtResource("3_2n7ms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.770092, 0, -0.10241699)
+
+[node name="Mummy" parent="." unique_id=337955123 instance=ExtResource("3_rwpgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.662922, 0, -1.6985254)
