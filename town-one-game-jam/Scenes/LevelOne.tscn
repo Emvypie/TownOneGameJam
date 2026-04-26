@@ -1,19 +1,15 @@
-[gd_scene format=3 uid="uid://dp3bjg8xos54s"]
+[gd_scene format=3 uid="uid://cugk88a2jtcto"]
 
-[ext_resource type="PackedScene" uid="uid://0yven0n4o71o" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
-[ext_resource type="PackedScene" uid="uid://dx5cm26bys813" path="res://Monster_Maker.tscn" id="2_cvavm"]
+[ext_resource type="PackedScene" uid="uid://dd86qwmuex3bm" path="res://Scenes/Lever.tscn" id="1_t5ss4"]
+[ext_resource type="PackedScene" uid="uid://l51eoeoarn05" path="res://Monster_Maker.tscn" id="2_cvavm"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="3_cvavm"]
 [ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Coffin/Coffin.tscn" id="3_vhmom"]
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://SawStation/CuttingBed.tscn" id="4_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="4_vhmom"]
-[ext_resource type="PackedScene" path="res://Score.tscn" id="5_86mp4"]
+[ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="5_86mp4"]
+[ext_resource type="PackedScene" uid="uid://bwqhgwe3wgjqm" path="res://Room.tscn" id="5_ufbp1"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Chest/Chest.tscn" id="9_86mp4"]
 [ext_resource type="PackedScene" uid="uid://d13gue3y1rivb" path="res://Player.tscn" id="11_0ieg5"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
-size = Vector3(17, 1, 15)
-
-[sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 metadata/_edit_lock_ = true
@@ -23,19 +19,6 @@ transform = Transform3D(-1, -8.2150535e-08, 2.9900352e-08, 0, 0.34202015, 0.9396
 fov = 80.0
 
 [node name="Environment" type="Node3D" parent="." unique_id=923789478]
-
-[node name="Floor" type="Area3D" parent="Environment" unique_id=2085722637]
-
-[node name="COL_Floor" type="CollisionShape3D" parent="Environment/Floor" unique_id=1008832378]
-shape = SubResource("BoxShape3D_7fr83")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Floor" unique_id=2138170876]
-transform = Transform3D(40, 0, 0, 0, 0.8, 0, 0, 0, 32, 0, 0, 0)
-mesh = SubResource("BoxMesh_t33is")
-metadata/_edit_lock_ = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=712860662]
-metadata/_edit_lock_ = true
 
 [node name="Lever" parent="Environment" unique_id=1569971934 instance=ExtResource("1_t5ss4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 3, 8)
@@ -50,9 +33,49 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11,
 [node name="CuttingBed" parent="Environment" unique_id=1539972660 instance=ExtResource("4_86mp4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -1)
 
+[node name="Lighting" type="Node" parent="Environment" unique_id=1386515719]
+
+[node name="L_SawTable" type="SpotLight3D" parent="Environment/Lighting" unique_id=96084664]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12, 8, -11)
+light_color = Color(2.2910237e-05, 0.9903118, 0.99742144, 1)
+light_energy = 3.46
+light_indirect_energy = 12.705
+light_volumetric_fog_energy = 0.832
+light_size = 0.058
+spot_range = 11.0
+spot_angle = 72.95169
+
+[node name="L_SawTable2" type="SpotLight3D" parent="Environment/Lighting" unique_id=542038455]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 11, 8, -12)
+light_color = Color(2.2910237e-05, 0.9903118, 0.99742144, 1)
+light_energy = 3.46
+light_indirect_energy = 12.705
+light_volumetric_fog_energy = 0.832
+light_size = 0.058
+spot_range = 11.0
+spot_angle = 72.95169
+
+[node name="L_SawTable3" type="SpotLight3D" parent="Environment/Lighting" unique_id=1990045750]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1, 8, -2)
+light_color = Color(2.2910237e-05, 0.9903118, 0.99742144, 1)
+light_energy = 3.46
+light_indirect_energy = 12.705
+light_volumetric_fog_energy = 0.832
+light_size = 0.058
+spot_range = 11.0
+spot_angle = 72.95169
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/Lighting" unique_id=712860662]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 13, 0)
+light_color = Color(0.67698437, 0.81521237, 0.9211615, 1)
+sky_mode = 1
+
+[node name="Room" parent="Environment" unique_id=2130058203 instance=ExtResource("5_ufbp1")]
+
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1929090013]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1125434577]
 modulate = Color(1, 1, 1, 0.16078432)
