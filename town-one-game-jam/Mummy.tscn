@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cnqwx54q5mon1"]
 
-[ext_resource type="ArrayMesh" uid="uid://b6im6pgf5bpr" path="res://Mummy.obj" id="1_105sr"]
+[ext_resource type="ArrayMesh" uid="uid://dqfj5wvj6cohc" path="res://Mummy_V02.obj" id="1_105sr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0wpy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0wpy"]
+albedo_color = Color(0.5181592, 0.39876798, 0.19254673, 1)
 
 [node name="Mummy" type="Area3D" unique_id=825093918]
 
@@ -11,3 +14,4 @@ shape = SubResource("BoxShape3D_m0wpy")
 
 [node name="MESH_Mummy" type="MeshInstance3D" parent="." unique_id=1261398901]
 mesh = ExtResource("1_105sr")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0wpy")
