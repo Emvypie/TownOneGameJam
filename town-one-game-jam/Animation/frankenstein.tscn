@@ -234,6 +234,33 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="Curve" id="Curve_606q8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8119048, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jyqbo"]
+curve = SubResource("Curve_606q8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_606q8"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 0.02
+initial_velocity_max = 0.08
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_jyqbo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_606q8"]
+albedo_color = Color(1, 0.5294118, 0, 1)
+emission_enabled = true
+emission = Color(0.99999994, 0.45739496, 0.21663192, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jyqbo"]
+material = SubResource("StandardMaterial3D_606q8")
+top_radius = 0.1
+bottom_radius = 0.0
+height = 1.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ee61n"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mi285"]
@@ -1375,10 +1402,28 @@ mesh = SubResource("ArrayMesh_x0h42")
 skin = SubResource("Skin_606q8")
 skeleton = NodePath("..")
 
-[node name="Cube_017_Cube_024" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=63449767]
+[node name="hands" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=63449767]
 mesh = SubResource("ArrayMesh_xdj1x")
 skin = SubResource("Skin_606q8")
 skeleton = NodePath("..")
+
+[node name="LeftFire_GPUParticles3D" type="GPUParticles3D" parent="Armature/Skeleton3D/hands" unique_id=1940518655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015431728, 0.073132955, 0.020817569)
+amount = 20
+lifetime = 0.5
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_606q8")
+draw_pass_1 = SubResource("CylinderMesh_jyqbo")
+
+[node name="RightFire_GPUParticles3D" type="GPUParticles3D" parent="Armature/Skeleton3D/hands" unique_id=2106669899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0071816086, 0.07990261, 0.020817567)
+amount = 20
+lifetime = 0.5
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_606q8")
+draw_pass_1 = SubResource("CylinderMesh_jyqbo")
 
 [node name="Cube_018_Cube_025" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=560947968]
 mesh = SubResource("ArrayMesh_mi285")
