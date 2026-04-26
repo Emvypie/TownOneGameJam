@@ -16,6 +16,12 @@ enum EStates {
 ## Signals
 signal on_current_state_changed(state: EStates)
 
+
+# Onready vars
+@onready var hold_position = $"."
+@onready var player_a_label = $"../../PlayerALabel"
+@onready var player_b_label = $"../../PlayerBLabel"
+
 # Private vars
 var initial_state: EStates = EStates.IDLE
 var rotation_direction = 0
@@ -31,12 +37,8 @@ var picked_object = null
 var chopping_block = null
 var player_a_score = 0
 var player_b_score = 0
+	
 var move_input: Vector2 = Vector2.ZERO
-
-# Onready vars
-@onready var hold_position = $"."
-@onready var player_a_label = $"../../PlayerALabel"
-@onready var player_b_label = $"../../PlayerBLabel"
 
 
 ## -----------------------------------------------------------------------------
@@ -74,6 +76,7 @@ func _physics_process(delta: float) -> void:
 			pickup()
 
 	get_input()
+
 	
 func _input(event):
 	if event.is_action_pressed("PICKUP"):
@@ -84,6 +87,7 @@ func _input(event):
 		update_labels("A")
 	if event.is_action_pressed("PLAYER_B_BTN_1") or event.is_action_pressed("PLAYER_B_BTN_2"):
 		update_labels("B")
+
 
 
 ## Custom signals
@@ -103,6 +107,15 @@ func _on_block_body_exited(body: CharacterBody3D, area: Area3D):
 	if body == self:
 		area.position.x += 0.0001
 		chopping_block = null
+
+
+func _on_enemy_died():
+	if player_a_score > player_b_score:
+		ScoreManager.update_score(player_a_score)
+	else:
+		ScoreManager.update_score(player_b_score)
+
+	# Update global score
 
 
 ## Movement Code
@@ -174,3 +187,5 @@ func update_labels(player: String):
 	else:
 		player_b_score+=1
 		player_b_label.text = "Player B: " + str(player_b_score)
+	ScoreManager.update_score(player_a_score)
+		
