@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Coffin/Coffin.tscn" id="3_vhmom"]
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://SawStation/CuttingBed.tscn" id="4_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="4_vhmom"]
-[ext_resource type="PackedScene" path="res://Score.tscn" id="5_86mp4"]
+[ext_resource type="PackedScene" uid="uid://csyejvqx55p5t" path="res://Score.tscn" id="5_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bwqhgwe3wgjqm" path="res://Room.tscn" id="5_ufbp1"]
 [ext_resource type="PackedScene" uid="uid://bcg3yxp10k41m" path="res://Frankenstein/Frankenstein.tscn" id="8_0ieg5"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Chest/Chest.tscn" id="9_86mp4"]
