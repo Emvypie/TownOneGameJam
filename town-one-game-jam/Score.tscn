@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b5i3fd73beb57"]
+
+[ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
+
+[node name="Score" type="Node" unique_id=574491579]
+script = ExtResource("1_7urb4")
+
+[node name="Label" type="Label" parent="." unique_id=253219591]
+offset_left = 1510.0
+offset_right = 1918.0
+offset_bottom = 209.0
+horizontal_alignment = 1
+vertical_alignment = 1

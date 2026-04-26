@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cmsugsciwwvyq"]
 
+[ext_resource type="ArrayMesh" uid="uid://dtn1jpxqdv4ww" path="res://Coffin/Coffin.obj" id="1_16r6p"]
 [ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://Coffin/CoffinOpen.mp3" id="1_bjej6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyx7i"]
@@ -16,6 +17,7 @@
 shape = SubResource("BoxShape3D_qyx7i")
 
 [node name="MESH_Coffin" type="MeshInstance3D" parent="." unique_id=1150659608]
+mesh = ExtResource("1_16r6p")
 
 [node name="SFX_CoffinOpen" type="AudioStreamPlayer3D" parent="." unique_id=1776805700]
 stream = ExtResource("1_bjej6")
