@@ -2,14 +2,11 @@ extends Node
 
 @export var score_label: Label
 @export var split30_label: Label
-@export var split60_label: Label
-@export var peak_rate_label: Label
 
 var score = 0
 var time_passed = 0.0
 
 var split_30_done = false
-var split_60_done = false
 var stop_incrementing = false
 
 var peak_rate = 0.0
@@ -23,8 +20,6 @@ var game_over = null
 func _ready():
 	score_label.text = "Score: 0"
 	split30_label.text = "30s: "
-	split60_label.text = "1m: "
-	peak_rate_label.text = "Peak Rate: "
 
 func _process(delta):
 	time_passed += delta
@@ -35,10 +30,6 @@ func _process(delta):
 		split30_label.text = "30s: " + str(score)
 		split_30_done = true
 
-	if time_passed >= 60.0 and !split_60_done:
-		split60_label.text = "1m: " + str(score)
-		split_60_done = true
-
 	if time_passed >= next_rate_check and next_rate_check <= 60.0:
 		var gained_score = score - previous_check_score
 		var current_rate = gained_score / 10.0
@@ -48,10 +39,6 @@ func _process(delta):
 
 		previous_check_score = score
 		next_rate_check += 10.0
-
-	if time_passed >= 90.0 and !peak_shown:
-		peak_rate_label.text = "Peak Rate: " + str(snapped(peak_rate, 0.01))
-		peak_shown = true
 
 func _input(event):
 	if time_passed < 60.0:
@@ -77,7 +64,6 @@ func play_punch_sound():
 	punch_sound.play()
 
 func set_final_score():
-	#print
 	final_score = $"../GameOverScene/FinalScore"
 	final_score.text = "Score: " + str(score)
 	final_score = $"../GameOverScene/PeakRate"
