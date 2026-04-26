@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://cirq151377ahd"]
+[gd_scene format=3 uid="uid://dipslow7j6f05"]
 
-[ext_resource type="PackedScene" uid="uid://c23y0xulwmlag" path="res://Animation/frankenstein.tscn" id="4_1pun0"]
+[ext_resource type="Script" path="res://Scenes/FinalScore.gd" id="1_ogt3e"]
+[ext_resource type="Script" uid="uid://cxeywm4am5u1t" path="res://Scenes/CameraShake.gd" id="2_ev8s3"]
+[ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="4_1pun0"]
 [ext_resource type="AudioStream" uid="uid://cbj634jxsgaxf" path="res://SFX placeholder punch .wav" id="5_ogt3e"]
-[ext_resource type="PackedScene" path="res://Mummy.tscn" id="5_vffgo"]
+[ext_resource type="PackedScene" uid="uid://cnqwx54q5mon1" path="res://Mummy.tscn" id="5_vffgo"]
+[ext_resource type="PackedScene" uid="uid://batbq7idolui0" path="res://GameOver_Scene.tscn" id="7_q5y2k"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
 
@@ -11,10 +14,12 @@
 [sub_resource type="BoxMesh" id="BoxMesh_1pun0"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
+script = ExtResource("1_ogt3e")
 metadata/_edit_lock_ = true
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
 transform = Transform3D(-1, -8.215054e-08, 2.9900352e-08, -7.5710346e-08, 0.9848078, 0.17364812, -4.3711385e-08, 0.17364812, -0.9848078, 0, 7, -17)
+script = ExtResource("2_ev8s3")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
 
@@ -43,3 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 0.8475668, 0.5306887, 0, -0.5306887, 0.84756
 
 [node name="Punch" type="AudioStreamPlayer3D" parent="." unique_id=1708019442]
 stream = ExtResource("5_ogt3e")
+
+[node name="GameOverScene" parent="." unique_id=1628921193 instance=ExtResource("7_q5y2k")]
+visible = false

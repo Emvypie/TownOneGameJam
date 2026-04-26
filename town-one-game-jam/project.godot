@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://c6b8jnnyankea"
 [autoload]
 
 ScoreManager="*uid://1gbdt0f06it1"
+FinalScore="*uid://cp4wybvaglxp3"
 
 [display]
 
