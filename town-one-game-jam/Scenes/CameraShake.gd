@@ -29,6 +29,6 @@ func shake_rotation(max_rotation_degrees: float, duration: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("PLAYER_B_BTN_2"):
-		shake_rotation(3, 0.2)
+		shake_rotation(3, 0.1)
 	if event.is_action_pressed("PLAYER_B_BTN_1"):
-		shake_rotation(3, 0.2)
+		shake_rotation(3, 0.1)
