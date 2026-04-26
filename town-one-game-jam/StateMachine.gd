@@ -42,7 +42,7 @@ var move_input: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	current_state = initial_state
-	for area in get_tree().get_nodes_in_group("trigger"):
+	for area in get_tree().get_nodes_in_group("triggers"):
 		area.body_entered.connect(_on_area_body_entered.bind(area))
 		area.body_exited.connect(_on_area_body_exited.bind(area))
 	
