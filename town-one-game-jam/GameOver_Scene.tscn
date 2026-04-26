@@ -17,10 +17,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PeakRate" type="Label" parent="." unique_id=33173413]
-offset_left = 126.0
-offset_top = 586.0
-offset_right = 1833.0
-offset_bottom = 1162.0
+offset_left = 108.0
+offset_top = 714.0
+offset_right = 1815.0
+offset_bottom = 1056.0
 theme_override_font_sizes/font_size = 250
 text = "Peak Rate:"
 vertical_alignment = 1
@@ -31,5 +31,5 @@ offset_top = 392.0
 offset_right = 1805.0
 offset_bottom = 734.0
 theme_override_font_sizes/font_size = 250
-text = "FINAL"
+text = "Score:"
 vertical_alignment = 1
