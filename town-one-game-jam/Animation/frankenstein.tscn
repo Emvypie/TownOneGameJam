@@ -1143,7 +1143,6 @@ comma_vfx = [NodePath("LeftFire_GPUParticles3D"), NodePath("LeftTrack_GPUParticl
 
 [node name="LeftFire_GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1940518655]
 transform = Transform3D(100, 0, 0, 0, 100, 7.54979e-06, 0, -7.54979e-06, 100, -1.5431728, 7.3132954, 8.286527)
-visible = false
 amount = 20
 lifetime = 0.5
 explosiveness = 1.0
@@ -1153,7 +1152,6 @@ draw_pass_1 = SubResource("CylinderMesh_jyqbo")
 
 [node name="LeftTrack_GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1657085245]
 transform = Transform3D(100, 0, 0, 0, 2.5479174, -99.96754, 0, 99.96754, 2.5479174, -1.5431728, 7.313296, 3.5195239)
-visible = false
 amount = 5
 lifetime = 2.0
 explosiveness = 1.0
@@ -1163,7 +1161,6 @@ draw_pass_1 = SubResource("CylinderMesh_x0h42")
 
 [node name="RightTrack_GPUParticles3D3" type="GPUParticles3D" parent="." unique_id=1988621487]
 transform = Transform3D(100, 0, 0, 0, 2.5479174, -99.96754, 0, 99.96754, 2.5479174, 0.8700326, 8.041831, 3.7201412)
-visible = false
 amount = 5
 lifetime = 2.0
 explosiveness = 1.0
@@ -1173,7 +1170,6 @@ draw_pass_1 = SubResource("CylinderMesh_mi285")
 
 [node name="RightFire_GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1153399067]
 transform = Transform3D(100, 0, 0, 0, 100, 7.54979e-06, 0, -7.54979e-06, 100, 0.73715204, 8.185414, 8.286524)
-visible = false
 amount = 20
 lifetime = 0.5
 explosiveness = 1.0
@@ -1636,7 +1632,6 @@ stream = ExtResource("2_jyqbo")
 
 [node name="Smoke_GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1003809297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.899132, 0.46379852)
-visible = false
 transparency = 0.7
 amount = 24
 fixed_fps = 60
@@ -1645,7 +1640,6 @@ draw_pass_1 = SubResource("SphereMesh_x0h42")
 
 [node name="RedSmoke_GPUParticles3D" type="GPUParticles3D" parent="." unique_id=533338376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0553274, 0.46379852)
-visible = false
 amount = 24
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_x0h42")

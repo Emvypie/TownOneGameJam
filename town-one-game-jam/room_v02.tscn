@@ -15,7 +15,7 @@ size = Vector3(17, 1, 15)
 size = Vector3(50, 1, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8fkg"]
-albedo_color = Color(0.24295428, 0.215933, 0.17073822, 1)
+albedo_color = Color(0.11120241, 0.09346237, 0.06794501, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m6sgb"]
 size = Vector3(41, 1, 33)
@@ -81,7 +81,7 @@ transform = Transform3D(0.99013644, 0, -0.14010644, 0, 1, 0, 0.14010644, 0, 0.99
 transform = Transform3D(-0.9389921, 0, 0.3439384, 0, 1, 0, -0.3439384, 0, -0.9389921, 18.250158, 0, 5.6116333)
 
 [node name="CuttingBed2" parent="." unique_id=1675063148 instance=ExtResource("3_4j1av")]
-transform = Transform3D(-0.79429805, 0, -0.60752815, 0, 1, 0, 0.60752815, 0, -0.79429805, 2.2055507, 0, -19.069984)
+transform = Transform3D(-0.7080935, 0, -0.7061186, 0, 1, 0, 0.7061186, 0, -0.7080935, 2.2055507, 0, -19.069984)
 
 [node name="chest1" parent="." unique_id=1909525171 instance=ExtResource("4_xck2t")]
 transform = Transform3D(0.7396546, 0, 0.67298657, 0, 1, 0, -0.67298657, 0, 0.7396546, 15.453244, 0, -14.848789)
