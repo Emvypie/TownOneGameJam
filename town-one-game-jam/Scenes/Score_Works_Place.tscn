@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://cugk88a2jtcto"]
 
-[ext_resource type="Shader" uid="uid://cnvoebjuvxcf" path="res://Shaders/VibeShader.tres" id="1_rmnu2"]
-[ext_resource type="Texture2D" uid="uid://byt28lh8oog1u" path="res://Textures/T_Star.png" id="2_664h7"]
-[ext_resource type="Texture2D" uid="uid://b548paqwtsldy" path="res://Textures/T_Circle.png" id="3_5uf5u"]
+[ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="1_rmnu2"]
+[ext_resource type="PackedScene" uid="uid://dd86qwmuex3bm" path="res://Scenes/Lever.tscn" id="4_730u3"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="4_wnkcr"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="5_iknm5"]
-[ext_resource type="PackedScene" uid="uid://l51eoeoarn05" path="res://Monster_Maker.tscn" id="6_664h7"]
+[ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="7_5uf5u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -13,14 +12,6 @@ size = Vector3(17, 1, 15)
 [sub_resource type="BoxMesh" id="BoxMesh_t33is"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5p0eq"]
-render_priority = 0
-shader = ExtResource("1_rmnu2")
-shader_parameter/Vibe_Color = Color(0.6048261, 0.24923697, 0, 1)
-shader_parameter/Vibe_Color_INT = 50.0
-shader_parameter/Vibe_Base_STR = 0.8
-shader_parameter/Vibe_Texture_Size2 = Vector2(50, 50)
-shader_parameter/Vibe_Texture_Pan_SPD = Vector2(0.005, 0.005)
-shader_parameter/Vibe_Texture_Size = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
@@ -36,7 +27,6 @@ scale_max = 0.099999994
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bry8"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_664h7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_x2kcs"]
 material = SubResource("StandardMaterial3D_6bry8")
@@ -45,7 +35,6 @@ size = Vector2(5, 5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y1r4"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("3_5uf5u")
 
 [sub_resource type="QuadMesh" id="QuadMesh_6bry8"]
 material = SubResource("StandardMaterial3D_4y1r4")
@@ -75,8 +64,9 @@ metadata/_edit_lock_ = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=712860662]
 metadata/_edit_lock_ = true
 
-[node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1084533512]
+[node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1084533512 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.037158, -8)
+script = ExtResource("1_rmnu2")
 
 [node name="MESH_Player" type="MeshInstance3D" parent="KB_Player" unique_id=1109650814]
 transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 2, 0, 0, 0)
@@ -111,5 +101,8 @@ texture = ExtResource("4_wnkcr")
 
 [node name="Timer" parent="." unique_id=2098668842 instance=ExtResource("5_iknm5")]
 
-[node name="MonsterMaker" parent="." unique_id=521857803 instance=ExtResource("6_664h7")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 1, 9)
+[node name="Score" parent="." unique_id=574491579 instance=ExtResource("7_5uf5u")]
+
+[node name="Lever" parent="." unique_id=1569971934 instance=ExtResource("4_730u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 9)
+score_counter_path = NodePath("../Score")

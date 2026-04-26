@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d2lw01powws47" path="res://Lever.obj" id="1_4x58u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wusd6"]
-size = Vector3(1, 3, 2)
+size = Vector3(5, 4, 3)
 
 [node name="Lever" type="Node3D" unique_id=1569971934]
 script = ExtResource("1_0so5j")
@@ -13,7 +13,7 @@ script = ExtResource("1_0so5j")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=753493970]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_wusd6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1470192101]

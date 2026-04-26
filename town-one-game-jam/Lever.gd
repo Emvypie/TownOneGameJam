@@ -13,7 +13,7 @@ func _ready():
 	$Area3D.body_exited.connect(_on_body_exited)
 
 func _process(delta):
-	if player_near and Input.is_action_just_pressed("interact"):
+	if player_near and Input.is_action_just_pressed("CRANK"):
 		score_counter.add_score()
 
 func _on_body_entered(body):
