@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://batbq7idolui0"]
 
-[node name="Node2D" type="Node2D" unique_id=1628921193]
+[node name="GameOverScene" type="Node2D" unique_id=1628921193]
 
 [node name="GameOverText" type="Label" parent="." unique_id=1144735486]
 offset_right = 1920.0

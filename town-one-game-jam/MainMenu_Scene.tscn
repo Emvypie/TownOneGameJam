@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://du73rarogwkio"]
+
+[ext_resource type="Script" uid="uid://dhb8wct27hdt5" path="res://MainMenuScene.gd" id="1_57g3a"]
+
+[node name="MainMenu_Scene" type="Node2D" unique_id=2018376425]
+script = ExtResource("1_57g3a")
+
+[node name="Play" type="Button" parent="." unique_id=1301887136]
+offset_left = 58.0
+offset_top = 76.0
+offset_right = 1010.0
+offset_bottom = 426.0
+theme_override_font_sizes/font_size = 200
+text = "Play"
+
+[node name="Options" type="Button" parent="." unique_id=388521864]
+offset_left = 58.0
+offset_top = 486.0
+offset_right = 1010.0
+offset_bottom = 655.0
+theme_override_font_sizes/font_size = 100
+text = "Options"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
