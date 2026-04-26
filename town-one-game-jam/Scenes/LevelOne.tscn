@@ -6,11 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Coffin/Coffin.tscn" id="3_vhmom"]
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://SawStation/CuttingBed.tscn" id="4_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="4_vhmom"]
-[ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="5_86mp4"]
+[ext_resource type="PackedScene" path="res://Score.tscn" id="5_86mp4"]
 [ext_resource type="PackedScene" uid="uid://bwqhgwe3wgjqm" path="res://Room.tscn" id="5_ufbp1"]
 [ext_resource type="PackedScene" uid="uid://bcg3yxp10k41m" path="res://Frankenstein/Frankenstein.tscn" id="8_0ieg5"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Chest/Chest.tscn" id="9_86mp4"]
 [ext_resource type="PackedScene" uid="uid://d13gue3y1rivb" path="res://Player.tscn" id="11_0ieg5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ieg5"]
+line_spacing = 3.7
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_xohb6"]
+font_size = 90
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 metadata/_edit_lock_ = true
@@ -81,6 +88,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -4)
 
 [node name="Frankenstein" parent="Environment" unique_id=229427808 instance=ExtResource("8_0ieg5")]
 transform = Transform3D(-4.3711385e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 0, 15, 1.0000001, -11)
+
+[node name="PlayerALabel" type="Label" parent="Environment" unique_id=1054808202]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_0ieg5")
+
+[node name="PlayerBLabel" type="Label" parent="Environment" unique_id=1124871873]
+offset_left = 1192.0
+offset_top = 177.0
+offset_right = 1916.0
+offset_bottom = 442.0
+label_settings = SubResource("LabelSettings_xohb6")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
 
