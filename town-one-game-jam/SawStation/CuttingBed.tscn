@@ -3,15 +3,18 @@
 [ext_resource type="ArrayMesh" uid="uid://de37lhkjuuvsy" path="res://SawStation/OperatingTable.obj" id="1_bgab8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kau7x"]
+size = Vector3(5, 3, 9)
 
 [node name="CuttingBed" type="Node3D" unique_id=1539972660]
 
 [node name="MESH_Bed" type="MeshInstance3D" parent="." unique_id=1571655593]
+transform = Transform3D(6.81, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("1_bgab8")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=792888718]
 
 [node name="COL_Bed" type="CollisionShape3D" parent="Area3D" unique_id=1687901780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_kau7x")
 
 [node name="SFX_Sawing" type="AudioStreamPlayer3D" parent="." unique_id=85827296]

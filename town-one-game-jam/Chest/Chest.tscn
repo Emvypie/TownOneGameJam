@@ -3,6 +3,10 @@
 [ext_resource type="ArrayMesh" uid="uid://dkswpr2xnolfn" path="res://Chest/Box.obj" id="1_orixs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kau7x"]
+size = Vector3(5, 5, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_orixs"]
+size = Vector3(5, 4, 8)
 
 [node name="CuttingBed" type="Node3D" unique_id=1539972660]
 
@@ -10,9 +14,16 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 mesh = ExtResource("1_orixs")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=792888718]
+[node name="Trigger" type="Area3D" parent="." unique_id=792888718]
 
-[node name="COL_Bed" type="CollisionShape3D" parent="Area3D" unique_id=1687901780]
+[node name="Trigger_Chest" type="CollisionShape3D" parent="Trigger" unique_id=1687901780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.5)
 shape = SubResource("BoxShape3D_kau7x")
 
 [node name="SFX_Sawing" type="AudioStreamPlayer3D" parent="." unique_id=85827296]
+
+[node name="Collision" type="Area3D" parent="." unique_id=1222056376]
+
+[node name="COl_Chest" type="CollisionShape3D" parent="Collision" unique_id=1531997095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.5)
+shape = SubResource("BoxShape3D_orixs")
