@@ -141,7 +141,7 @@ func putdown() -> void:
 			# Re-enable physics and return to world
 			picked_object.position.x += 0.0001
 			var tween = create_tween()
-			var top_of_block = chopping_block.global_position + Vector3(0,1,0)
+			var top_of_block = chopping_block.global_position + Vector3(0,4,0)
 			tween.tween_property(picked_object, "global_position", top_of_block, 0.2)
 			picked_object.reparent(get_tree().root) # Or your world node
 			picked_object = null

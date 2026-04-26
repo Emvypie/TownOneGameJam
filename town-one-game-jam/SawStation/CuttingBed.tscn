@@ -32,7 +32,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_v2rc0")
 surface_material_override/3 = SubResource("StandardMaterial3D_giqe1")
 surface_material_override/4 = SubResource("StandardMaterial3D_wareu")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=792888718]
+[node name="Area3D" type="Area3D" parent="." unique_id=792888718 groups=["chopping_block"]]
 
 [node name="COL_Bed" type="CollisionShape3D" parent="Area3D" unique_id=1687901780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1472702, 2, 0.048980713)
