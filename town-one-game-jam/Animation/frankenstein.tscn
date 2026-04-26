@@ -242,7 +242,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0h42"]
-albedo_color = Color(0.4117647, 0.7019608, 0.08235294, 1)
+albedo_color = Color(0.6640975, 0.5708084, 0.7077427, 1)
 
 [sub_resource type="Curve" id="Curve_606q8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8119048, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
