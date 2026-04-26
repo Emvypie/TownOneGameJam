@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://b0l335xjssykt"]
+
+[ext_resource type="Material" uid="uid://cjx0s84ul0nv6" path="res://Materials/M_Outline.tres" id="1_7g8go"]
+[ext_resource type="PackedScene" uid="uid://cmsugsciwwvyq" path="res://Unused/Coffin/Coffin.tscn" id="2_l64oh"]
+[ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://Unused/SawStation/CuttingBed.tscn" id="3_4j1av"]
+[ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Unused/Chest/Chest.tscn" id="4_xck2t"]
+[ext_resource type="PackedScene" uid="uid://ctirkdcbgh76c" path="res://Monster_Maker.tscn" id="5_fcn2l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gw7sj"]
+size = Vector3(17, 1, 15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_j88ob"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dxrcm"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8fkg"]
+albedo_color = Color(0.24295428, 0.215933, 0.17073822, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6sgb"]
+size = Vector3(41, 1, 33)
+
+[node name="Room" type="Node3D" unique_id=1375406081]
+
+[node name="COL_Floor" type="CollisionShape3D" parent="." unique_id=1415550493]
+shape = SubResource("BoxShape3D_gw7sj")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1961040297]
+transform = Transform3D(0.53796417, -0.32449776, 0.77800757, 0.07795848, 0.93813515, 0.33737957, -0.8393551, -0.12084585, 0.5299804, -0.3503635, 8.381603, 48.10794)
+projection = 2
+fov = 68.1
+size = 0.116
+
+[node name="SlectionEffect_MeshInstance3D" type="MeshInstance3D" parent="." unique_id=705240919]
+mesh = SubResource("SphereMesh_j88ob")
+surface_material_override/0 = ExtResource("1_7g8go")
+
+[node name="floor" type="MeshInstance3D" parent="." unique_id=1534971166]
+mesh = SubResource("BoxMesh_dxrcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8fkg")
+
+[node name="COL_Floor2" type="CollisionShape3D" parent="." unique_id=274848213]
+shape = SubResource("BoxShape3D_m6sgb")
+
+[node name="wall" type="MeshInstance3D" parent="." unique_id=1958163001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 14.847458, -25.034912)
+mesh = SubResource("BoxMesh_dxrcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8fkg")
+
+[node name="wall" type="MeshInstance3D" parent="wall" unique_id=2013069546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.630386, -1.4534712)
+mesh = SubResource("BoxMesh_dxrcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8fkg")
+
+[node name="wall2" type="MeshInstance3D" parent="wall" unique_id=1875901909]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 20.018604, 25.567657, -1.4534693)
+mesh = SubResource("BoxMesh_dxrcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8fkg")
+
+[node name="wall3" type="MeshInstance3D" parent="wall" unique_id=923296064]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -22.688507, 25.567657, -1.4534693)
+mesh = SubResource("BoxMesh_dxrcm")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8fkg")
+
+[node name="Coffin1" parent="." unique_id=838987978 instance=ExtResource("2_l64oh")]
+transform = Transform3D(0.7571778, -0.22982636, -0.6114422, 0.12062087, 0.969156, -0.21491185, 0.64197534, 0.08897394, 0.76154506, 3.9539719, 2.091598, -3.4245114)
+
+[node name="Coffin4" parent="." unique_id=2072737229 instance=ExtResource("2_l64oh")]
+transform = Transform3D(-0.9511159, 0, 0.30883443, 0, 1, 0, -0.30883443, 0, -0.9511159, 6.225831, 1.9073486e-06, -7.938285)
+
+[node name="Coffin5" parent="." unique_id=1940600911 instance=ExtResource("2_l64oh")]
+transform = Transform3D(0.9888554, 0, -0.14887959, 0, 1, 0, 0.14887959, 0, 0.9888554, 10.335772, 1.9073486e-06, -6.9522514)
+
+[node name="Coffin6" parent="." unique_id=1545705626 instance=ExtResource("2_l64oh")]
+transform = Transform3D(0.881221, 0, 0.47270453, 0, 1, 0, -0.47270453, 0, 0.881221, 10.414204, 2.4928155, -5.4177895)
+
+[node name="Coffin7" parent="." unique_id=171000410 instance=ExtResource("2_l64oh")]
+transform = Transform3D(0.99013644, 0, -0.14010644, 0, 1, 0, 0.14010644, 0, 0.99013644, 10.416998, 4.964819, -6.554882)
+
+[node name="CuttingBed" parent="." unique_id=1539972660 instance=ExtResource("3_4j1av")]
+transform = Transform3D(-0.9389921, 0, 0.3439384, 0, 1, 0, -0.3439384, 0, -0.9389921, 18.250158, 0, 5.6116333)
+
+[node name="CuttingBed2" parent="." unique_id=1675063148 instance=ExtResource("3_4j1av")]
+transform = Transform3D(-0.79429805, 0, -0.60752815, 0, 1, 0, 0.60752815, 0, -0.79429805, 2.2055507, 0, -19.069984)
+
+[node name="chest1" parent="." unique_id=1909525171 instance=ExtResource("4_xck2t")]
+transform = Transform3D(0.7396546, 0, 0.67298657, 0, 1, 0, -0.67298657, 0, 0.7396546, 15.453244, 0, -14.848789)
+
+[node name="chest1" parent="chest1" unique_id=724664941 instance=ExtResource("4_xck2t")]
+transform = Transform3D(0.7396546, 0, 0.67298657, 0, 1, 0, -0.67298657, 0, 0.7396546, 15.453244, 0, -14.848789)
+
+[node name="chest2" parent="." unique_id=947149044 instance=ExtResource("4_xck2t")]
+transform = Transform3D(-0.015637457, 0, 0.99987775, 0, 1, 0, -0.99987775, 0, -0.015637457, 15.983942, 0, 21.178734)
+
+[node name="chest3" parent="." unique_id=1961081376 instance=ExtResource("4_xck2t")]
+transform = Transform3D(0.9926648, 0, 0.12089913, 0, 1, 0, -0.12089913, 0, 0.9926648, 20.89232, 0, 11.277847)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=468727204]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 1, 0, -1, -4.3711385e-08, 1.0481558, 22.477684, -4.023018)
+light_color = Color(0.43187037, 0.6802427, 0.6639432, 1)
+light_energy = 100.0
+light_size = 0.305
+spot_range = 28.035625
+spot_attenuation = 0.25
+spot_angle = 50.69
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=73604749]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 1, 0, -1, -4.3711385e-08, 9.693798, 19.33051, 15.590256)
+light_energy = 100.0
+light_size = 0.305
+spot_range = 38.285
+spot_attenuation = 1.84
+spot_angle = 47.49
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=212593529]
+transform = Transform3D(0.13844302, 0.5432672, -0.8280666, 0.9535658, 0.15269911, 0.2596059, 0.2674804, -0.8255566, -0.49690095, -5.1630893, 5.326132, -17.133999)
+visible = false
+light_color = Color(0, 7.4589267, 5.3676667, 1)
+light_energy = 0.3
+light_size = 0.305
+spot_range = 38.285
+spot_attenuation = 1.84
+spot_angle = 95.49
+
+[node name="MonsterMaker1" parent="." unique_id=521857803 instance=ExtResource("5_fcn2l")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.194008, 0, 8.559977)
+
+[node name="MonsterMaker2" parent="." unique_id=348658700 instance=ExtResource("5_fcn2l")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.194008, 18.91593, 8.559977)

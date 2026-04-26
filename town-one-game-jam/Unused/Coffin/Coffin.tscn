@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://cmsugsciwwvyq"]
 
 [ext_resource type="ArrayMesh" uid="uid://dtn1jpxqdv4ww" path="res://Unused/Coffin/Coffin.obj" id="1_16r6p"]
-[ext_resource type="AudioStream" uid="uid://bsy2jyow4cpm5" path="res://Unused/Coffin/CoffinOpen.mp3" id="1_bjej6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyx7i"]
 size = Vector3(8.706421, 5, 11.237427)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16r6p"]
-albedo_color = Color(0.21616161, 0.26059854, 0.33200473, 1)
+albedo_color = Color(0.0023014362, 0.0023014362, 0.0023014362, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6u1k"]
 
@@ -29,7 +28,6 @@ material_overlay = SubResource("StandardMaterial3D_16r6p")
 mesh = ExtResource("1_16r6p")
 
 [node name="SFX_CoffinOpen" type="AudioStreamPlayer3D" parent="." unique_id=1776805700]
-stream = ExtResource("1_bjej6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=828330281]
 visible = false

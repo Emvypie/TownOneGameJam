@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djil1xktjkbxq" path="res://Unused/SawStation/CuttingBed.tscn" id="4_rwpgr"]
 [ext_resource type="PackedScene" uid="uid://dbqk8ih4ri2y7" path="res://Unused/Chest/Chest.tscn" id="5_4wrjy"]
 [ext_resource type="Material" uid="uid://cjx0s84ul0nv6" path="res://Materials/M_Outline.tres" id="6_c7ed7"]
-[ext_resource type="PackedScene" uid="uid://ccpg1ufr6v4" path="res://Scenes/FrankVMumMain.tscn" id="6_pp3vb"]
+[ext_resource type="PackedScene" uid="uid://cirq151377ahd" path="res://Scenes/FrankVMumMain.tscn" id="6_pp3vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -186,8 +186,10 @@ script = SubResource("GDScript_8sucx")
 [node name="CHOP" type="Node" parent="CON_Player/StateMachine" unique_id=777732245]
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
-transform = Transform3D(1, 0, 0, 0, 0.9533225, 0.30195397, 0, -0.30195397, 0.9533225, -6.052754, 9.021724, 55.123)
+transform = Transform3D(-0.05463231, -0.16941033, 0.98403025, 0.00747882, 0.98540497, 0.17006221, -0.99847853, 0.016650276, -0.052567963, -2.5286276, 8.044788, 46.451958)
+projection = 2
 fov = 68.1
+size = 0.116
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1293137540]
 
