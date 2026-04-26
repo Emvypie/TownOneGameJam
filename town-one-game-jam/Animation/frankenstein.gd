@@ -10,9 +10,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event):
-	if event.is_action_pressed("PLAYER_B_BTN_2"):
-		$AnimationPlayer.play("Right punch")
-		
-	if event.is_action_pressed("PLAYER_B_BTN_1"):
-		$AnimationPlayer.play("Left punch")
+#func _input(event):
+	#if event.is_action_pressed("PLAYER_B_BTN_2"):
+		#$AnimationPlayer.play("Right punch")
+		#
+	#if event.is_action_pressed("PLAYER_B_BTN_1"):
+		#$AnimationPlayer.play("Left punch")

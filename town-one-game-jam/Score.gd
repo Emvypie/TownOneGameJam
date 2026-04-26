@@ -15,6 +15,7 @@ var peak_rate = 0.0
 var previous_check_score = 0
 var next_rate_check = 10.0
 var peak_shown = false
+var frankenstein = null
 
 func _ready():
 	score_label.text = "Score: 0"
@@ -49,6 +50,16 @@ func _process(delta):
 	if time_passed >= 90.0 and !peak_shown:
 		peak_rate_label.text = "Peak Rate: " + str(snapped(peak_rate, 0.01))
 		peak_shown = true
+
+func _input(event):
+	frankenstein = $"../Frankenstein/AnimationPlayer"
+	if event.is_action_pressed("PLAYER_B_BTN_2"):
+		frankenstein.play("Right punch")
+		add_score()
+
+	if event.is_action_pressed("PLAYER_B_BTN_1"):
+		frankenstein.play("Left punch")
+		add_score()
 
 func add_score():
 	score += 1
