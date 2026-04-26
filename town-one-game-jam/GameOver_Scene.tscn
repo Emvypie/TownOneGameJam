@@ -1,35 +1,49 @@
 [gd_scene format=3 uid="uid://batbq7idolui0"]
 
+[ext_resource type="Script" uid="uid://b2jawk530j16h" path="res://GameOverScene.gd" id="1_usht8"]
+
 [node name="GameOverScene" type="Node2D" unique_id=1628921193]
+script = ExtResource("1_usht8")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=315334494]
+offset_top = -4.0
 offset_right = 1919.0
-offset_bottom = 1159.0
+offset_bottom = 1081.0
 color = Color(0.15761968, 0.4425809, 0.34553617, 1)
 
 [node name="GameOverText" type="Label" parent="." unique_id=1144735486]
-offset_top = -55.0
+offset_top = -109.0
 offset_right = 1920.0
-offset_bottom = 521.0
+offset_bottom = 467.0
 theme_override_font_sizes/font_size = 250
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PeakRate" type="Label" parent="." unique_id=33173413]
-offset_left = 108.0
-offset_top = 714.0
-offset_right = 1815.0
-offset_bottom = 1056.0
-theme_override_font_sizes/font_size = 250
-text = "Peak Rate:"
+offset_left = 26.0
+offset_top = 540.0
+offset_right = 1733.0
+offset_bottom = 882.0
+theme_override_font_sizes/font_size = 200
+text = "Peak Clicks/s:"
 vertical_alignment = 1
 
 [node name="FinalScore" type="Label" parent="." unique_id=1570724179]
-offset_left = 113.0
-offset_top = 392.0
-offset_right = 1805.0
-offset_bottom = 734.0
-theme_override_font_sizes/font_size = 250
+offset_left = 26.0
+offset_top = 318.0
+offset_right = 1718.0
+offset_bottom = 591.0
+theme_override_font_sizes/font_size = 200
 text = "Score:"
 vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1596943411]
+offset_left = 1224.0
+offset_top = 853.0
+offset_right = 1861.0
+offset_bottom = 1036.0
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
