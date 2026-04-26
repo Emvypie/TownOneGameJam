@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bnusvi5mriqc"]
+
+[ext_resource type="Texture2D" uid="uid://b4opxodhjrs3n" path="res://Textures/Frame-1.png" id="1_k7mw7"]
+[ext_resource type="Texture2D" uid="uid://blgqejqovpw67" path="res://Textures/Frame-2.png" id="2_iku1l"]
+[ext_resource type="Texture2D" uid="uid://by3c5fsi7mcs" path="res://Textures/Frame-3.png" id="3_ygbq0"]
+[ext_resource type="Texture2D" uid="uid://b41jyfgt6cpm5" path="res://Textures/Frame.png" id="4_bnn02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jr52o"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("1_k7mw7")
+}, {
+"duration": 0.3,
+"texture": ExtResource("2_iku1l")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_ygbq0")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_bnn02")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node3D" type="Node3D" unique_id=2061850671]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=749493719]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_jr52o")
+frame_progress = 0.9454598
