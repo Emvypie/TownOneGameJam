@@ -1499,7 +1499,7 @@ skin = SubResource("Skin_606q8")
 skeleton = NodePath("..")
 
 [node name="LeftFire_GPUParticles3D" type="GPUParticles3D" parent="Armature/Skeleton3D/hands" unique_id=1940518655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015431728, 0.073132955, 0.020817569)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015431728, 0.07313295, 0.082865275)
 amount = 20
 lifetime = 0.5
 explosiveness = 1.0
@@ -1508,7 +1508,7 @@ process_material = SubResource("ParticleProcessMaterial_606q8")
 draw_pass_1 = SubResource("CylinderMesh_jyqbo")
 
 [node name="LeftTrack_GPUParticles3D2" type="GPUParticles3D" parent="Armature/Skeleton3D/hands" unique_id=1657085245]
-transform = Transform3D(1, 0, 0, 0, 0.025479097, -0.99967533, 0, 0.99967533, 0.025479097, -0.015431728, 0.073132955, -0.02685245)
+transform = Transform3D(1, 0, 0, 0, 0.025479097, -0.99967533, 0, 0.99967533, 0.025479097, -0.015431728, 0.073132955, 0.035195243)
 amount = 5
 lifetime = 2.0
 explosiveness = 1.0
@@ -1517,7 +1517,7 @@ process_material = SubResource("ParticleProcessMaterial_htmne")
 draw_pass_1 = SubResource("CylinderMesh_x0h42")
 
 [node name="RightTrack_GPUParticles3D3" type="GPUParticles3D" parent="Armature/Skeleton3D/hands" unique_id=1988621487]
-transform = Transform3D(1, 0, 0, 0, 0.025479097, -0.99967533, 0, 0.99967533, 0.025479097, 0.008700326, 0.08041832, -0.024846287)
+transform = Transform3D(1, 0, 0, 0, 0.025479097, -0.99967533, 0, 0.99967533, 0.025479097, 0.008700326, 0.08041831, 0.03720142)
 amount = 5
 lifetime = 2.0
 explosiveness = 1.0
@@ -1526,7 +1526,7 @@ process_material = SubResource("ParticleProcessMaterial_xdj1x")
 draw_pass_1 = SubResource("CylinderMesh_mi285")
 
 [node name="RightFire_GPUParticles3D2" type="GPUParticles3D" parent="Armature/Skeleton3D/hands" unique_id=1153399067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0073715206, 0.08185414, 0.020817567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00737152, 0.081854135, 0.082865246)
 amount = 20
 lifetime = 0.5
 explosiveness = 1.0

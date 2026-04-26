@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://cirq151377ahd"]
+[gd_scene format=3 uid="uid://ccpg1ufr6v4"]
 
-[ext_resource type="Script" uid="uid://h17qe87tptc5" path="res://Scenes/FinalScore.gd" id="1_ogt3e"]
-[ext_resource type="PackedScene" uid="uid://c23y0xulwmlag" path="res://Animation/frankenstein.tscn" id="4_1pun0"]
+[ext_resource type="Script" path="res://Scenes/FinalScore.gd" id="1_ogt3e"]
+[ext_resource type="PackedScene" uid="uid://b7ooy07p8ng8u" path="res://Animation/frankenstein.tscn" id="4_1pun0"]
 [ext_resource type="AudioStream" uid="uid://cbj634jxsgaxf" path="res://SFX placeholder punch .wav" id="5_ogt3e"]
 [ext_resource type="PackedScene" path="res://Mummy.tscn" id="5_vffgo"]
-[ext_resource type="PackedScene" uid="uid://batbq7idolui0" path="res://GameOver_Scene.tscn" id="7_q5y2k"]
-[ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
-[ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
+[ext_resource type="PackedScene" path="res://GameOver_Scene.tscn" id="7_q5y2k"]
+[ext_resource type="PackedScene" path="res://Timer.tscn" id="10_c7ks4"]
+[ext_resource type="PackedScene" path="res://Score.tscn" id="11_ik3go"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vffgo"]
 
