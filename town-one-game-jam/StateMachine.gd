@@ -35,18 +35,21 @@ var chopping_block = null
 @export_group("3D")
 @export var rotation_speed: float = 10.0
 @export var camera_pivot: Node3D
-@export var speed = 400
+@export var speed = 600
 var move_input: Vector2 = Vector2.ZERO
+# colliders need to be added
+# outside of the plane - add bounds
 
 func _ready() -> void:
 	current_state = initial_state
-	for area in get_tree().get_nodes_in_group("detection_areas"):
+	for area in get_tree().get_nodes_in_group("trigger"):
 		area.body_entered.connect(_on_area_body_entered.bind(area))
 		area.body_exited.connect(_on_area_body_exited.bind(area))
 	
 	for block in get_tree().get_nodes_in_group("chopping_block"):
 		block.body_entered.connect(_on_block_body_entered.bind(block))
 		block.body_exited.connect(_on_block_body_exited.bind(block))
+	
 
 func _on_area_body_entered(body: Node3D, area: Area3D):
 	if body == self:
