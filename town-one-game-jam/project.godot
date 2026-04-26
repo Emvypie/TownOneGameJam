@@ -94,6 +94,7 @@ CRANK={
 
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Areas"
+3d_physics/layer_3="Furniture"
 
 [physics]
 

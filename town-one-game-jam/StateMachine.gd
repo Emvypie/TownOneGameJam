@@ -49,6 +49,7 @@ func _ready() -> void:
 	for block in get_tree().get_nodes_in_group("chopping_block"):
 		block.body_entered.connect(_on_block_body_entered.bind(block))
 		block.body_exited.connect(_on_block_body_exited.bind(block))
+	
 
 func _on_area_body_entered(body: Node3D, area: Area3D):
 	if body == self:
