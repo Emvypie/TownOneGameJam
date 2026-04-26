@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b53metigocx5w"]
+
+[ext_resource type="Script" uid="uid://7nqkw4qd52jn" path="res://UI/HboxContainer.gd" id="1_r68oe"]
+[ext_resource type="Texture2D" uid="uid://8ahriydxnq0a" path="res://UI/hud_heartFull.png" id="2_1hd1f"]
+
+[node name="Tickets" type="Node2D" unique_id=1627871966]
+
+[node name="TicketCounter" type="HBoxContainer" parent="." unique_id=1404649624]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+script = ExtResource("1_r68oe")
+
+[node name="Star1" type="TextureRect" parent="TicketCounter" unique_id=1623910190 groups=["stars"]]
+layout_mode = 2
+texture = ExtResource("2_1hd1f")
+
+[node name="Timer" type="Timer" parent="TicketCounter/Star1" unique_id=1050767953]
+autostart = true
+
+[node name="Star2" type="TextureRect" parent="TicketCounter" unique_id=1255518504 groups=["stars"]]
+layout_mode = 2
+texture = ExtResource("2_1hd1f")
+
+[node name="Timer" type="Timer" parent="TicketCounter/Star2" unique_id=169564546]
+wait_time = 2.0
+autostart = true
+
+[node name="Star3" type="TextureRect" parent="TicketCounter" unique_id=485116965 groups=["stars"]]
+layout_mode = 2
+texture = ExtResource("2_1hd1f")
+
+[node name="Timer" type="Timer" parent="TicketCounter/Star3" unique_id=834938005]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TicketCounter/Star1/Timer" to="TicketCounter" method="_on_timer_timeout"]
+[connection signal="timeout" from="TicketCounter/Star2/Timer" to="TicketCounter" method="_on_timer_timeout"]
+[connection signal="timeout" from="TicketCounter/Star3/Timer" to="TicketCounter" method="_on_timer_timeout"]

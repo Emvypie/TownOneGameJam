@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgare46c48og1"]
 
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="1_ynng8"]
+[ext_resource type="Script" uid="uid://ifgwq1doajmh" path="res://ObjectInteraction.gd" id="2_2d3ih"]
 [ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="2_7syk6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
@@ -10,6 +11,10 @@ size = Vector3(17, 1, 15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fr83"]
 albedo_texture = ExtResource("1_ynng8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7syk6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2d3ih"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tkmsp"]
 
@@ -35,6 +40,16 @@ mesh = SubResource("BoxMesh_paeh8")
 surface_material_override/0 = SubResource("StandardMaterial3D_7fr83")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=712860662]
+
+[node name="StaticBody3D" type="Area3D" parent="Environment" unique_id=1150958831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2261703, 1.2864714, -1.6619778)
+script = ExtResource("2_2d3ih")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D" unique_id=1477091113]
+shape = SubResource("BoxShape3D_7syk6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D" unique_id=880256720]
+mesh = SubResource("BoxMesh_2d3ih")
 
 [node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1084533512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6)
@@ -88,3 +103,7 @@ script = SubResource("GDScript_8sucx")
 [node name="Camera" type="Camera3D" parent="." unique_id=1658767795]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 1, 21.999998, 27.999998)
 fov = 80.0
+
+[node name="Marker3D" type="Marker3D" parent="Camera" unique_id=2044089492]
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera" unique_id=1945204216]

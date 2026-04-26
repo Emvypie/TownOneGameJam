@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cnqwx54q5mon1"]
+
+[node name="Mummy" type="Node3D" unique_id=1684390644]
+
+[node name="MESH_Mummy" type="MeshInstance3D" parent="." unique_id=1261398901]
+
+[node name="Trigger" type="CollisionShape3D" parent="." unique_id=327485313]

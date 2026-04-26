@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b5picled2push"]
+
+[ext_resource type="Script" uid="uid://bteug8olkrgpo" path="res://Options_Scene.gd" id="1_5ckg4"]
+
+[node name="Options_Scene" type="Node2D" unique_id=572814878]
+script = ExtResource("1_5ckg4")
+
+[node name="Back" type="Button" parent="." unique_id=532649969]
+offset_right = 952.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 100
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=345144595]
+offset_left = 617.0
+offset_top = 443.0
+offset_right = 1308.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 200
+text = "Prankd"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

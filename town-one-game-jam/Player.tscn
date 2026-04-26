@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://d13gue3y1rivb"]
+
+[ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="1_kpjcp"]
+[ext_resource type="ArrayMesh" uid="uid://cit13xnphlptv" path="res://Player/PlayerCharacter.obj" id="2_kne1u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e80uo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cxr5p"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.99997765
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.099999994
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bry8"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_tdg3f"]
+material = SubResource("StandardMaterial3D_6bry8")
+size = Vector2(5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y1r4"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_dtqjt"]
+material = SubResource("StandardMaterial3D_4y1r4")
+size = Vector2(5, 5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ncpa"]
+radius = 2.0
+height = 4.0
+
+[node name="Player" type="Node3D" unique_id=852903279]
+
+[node name="KB_Player" type="CharacterBody3D" parent="." unique_id=1509120142 groups=["player"]]
+collision_mask = 5
+script = ExtResource("1_kpjcp")
+
+[node name="MESH_Player" type="MeshInstance3D" parent="KB_Player" unique_id=1232077925]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.63, 0)
+material_overlay = SubResource("ShaderMaterial_e80uo")
+mesh = ExtResource("2_kne1u")
+metadata/_edit_lock_ = true
+
+[node name="VibeIcon_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player" unique_id=1795000316]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_cxr5p")
+draw_pass_1 = SubResource("QuadMesh_tdg3f")
+
+[node name="VibeParticle_GPUParticles3D" type="GPUParticles3D" parent="KB_Player/MESH_Player" unique_id=2035024429]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.01954627, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_cxr5p")
+draw_pass_1 = SubResource("QuadMesh_dtqjt")
+
+[node name="COL_Player" type="CollisionShape3D" parent="KB_Player" unique_id=894645859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5ncpa")
+metadata/_edit_lock_ = true
