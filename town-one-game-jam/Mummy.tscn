@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://cnqwx54q5mon1"]
 
-[node name="Mummy" type="Node3D" unique_id=1684390644]
+[ext_resource type="ArrayMesh" uid="uid://b6im6pgf5bpr" path="res://Mummy.obj" id="1_105sr"]
 
-[node name="MESH_Mummy" type="MeshInstance3D" parent="." unique_id=1261398901]
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0wpy"]
+
+[node name="Mummy" type="Area3D" unique_id=825093918]
 
 [node name="Trigger" type="CollisionShape3D" parent="." unique_id=327485313]
+shape = SubResource("BoxShape3D_m0wpy")
+
+[node name="MESH_Mummy" type="MeshInstance3D" parent="." unique_id=1261398901]
+mesh = ExtResource("1_105sr")

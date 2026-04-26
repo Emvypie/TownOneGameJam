@@ -12,5 +12,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16635561, 2, -0.5)
 shape = SubResource("BoxShape3D_dmdk1")
 
 [node name="MESH_Frankenstein" type="MeshInstance3D" parent="." unique_id=353739147]
-transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = ExtResource("1_tckye")
