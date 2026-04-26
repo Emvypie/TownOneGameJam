@@ -17,7 +17,7 @@ var previous_check_score = 0
 var next_rate_check = 10.0
 var peak_shown = false
 var frankenstein = null
-
+var final_score = null
 var game_over = null
 
 func _ready():
@@ -28,6 +28,8 @@ func _ready():
 
 func _process(delta):
 	time_passed += delta
+	var timer = $"../Timer/Timer"
+	timer.timeout.connect(set_final_score)
 
 	if time_passed >= 30.0 and !split_30_done:
 		split30_label.text = "30s: " + str(score)
@@ -37,7 +39,7 @@ func _process(delta):
 		split60_label.text = "1m: " + str(score)
 		split_60_done = true
 
-	if time_passed >= next_rate_check and next_rate_check <= 90.0:
+	if time_passed >= next_rate_check and next_rate_check <= 60.0:
 		var gained_score = score - previous_check_score
 		var current_rate = gained_score / 10.0
 
@@ -74,5 +76,11 @@ func play_punch_sound():
 	var punch_sound = $"../Frankenstein/Punch"
 	punch_sound.play()
 
-func get_final_score():
+func set_final_score():
+	#print
+	final_score = $"../GameOverScene/FinalScore"
+	final_score.text = "Score: " + str(score)
+	final_score = $"../GameOverScene/PeakRate"
+	final_score.text = "Peak Rate: " + str(peak_rate)
+
 	return score
