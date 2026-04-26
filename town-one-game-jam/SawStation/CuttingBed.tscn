@@ -6,7 +6,7 @@
 size = Vector3(8.624832, 3, 13.196838)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bgab8"]
-size = Vector3(3.6884155, 3.8027344, 8.736938)
+size = Vector3(2.930954, 3.8027344, 7.965912)
 
 [node name="CuttingBed" type="Node3D" unique_id=1539972660]
 
@@ -26,5 +26,5 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1592244547]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09121704, 1.4013672, -0.04901123)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.077034, 1.4013672, -0.11216736)
 shape = SubResource("BoxShape3D_bgab8")
