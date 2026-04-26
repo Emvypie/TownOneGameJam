@@ -21,7 +21,6 @@ func update_score(user, new_score):
 	save_score()
 
 func save_score():
-	#print("saving")
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_var(user_score_dict)
 	print(user_score_dict)

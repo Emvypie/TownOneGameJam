@@ -2,29 +2,34 @@
 
 [node name="GameOverScene" type="Node2D" unique_id=1628921193]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=315334494]
+offset_right = 1919.0
+offset_bottom = 1159.0
+color = Color(0.15761968, 0.4425809, 0.34553617, 1)
+
 [node name="GameOverText" type="Label" parent="." unique_id=1144735486]
+offset_top = -55.0
 offset_right = 1920.0
-offset_bottom = 576.0
+offset_bottom = 521.0
 theme_override_font_sizes/font_size = 250
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Final" type="Label" parent="." unique_id=33173413]
-offset_top = 504.0
-offset_right = 960.0
-offset_bottom = 1080.0
+[node name="PeakRate" type="Label" parent="." unique_id=33173413]
+offset_left = 126.0
+offset_top = 586.0
+offset_right = 1833.0
+offset_bottom = 1162.0
 theme_override_font_sizes/font_size = 250
 text = "Peak Rate:"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Final2" type="Label" parent="." unique_id=1570724179]
-offset_left = -111.0
-offset_top = 402.0
-offset_right = 849.0
-offset_bottom = 744.0
+[node name="FinalScore" type="Label" parent="." unique_id=1570724179]
+offset_left = 113.0
+offset_top = 392.0
+offset_right = 1805.0
+offset_bottom = 734.0
 theme_override_font_sizes/font_size = 250
 text = "FINAL"
-horizontal_alignment = 1
 vertical_alignment = 1
