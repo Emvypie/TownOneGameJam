@@ -10,10 +10,10 @@ wait_time = 60.0
 one_shot = true
 
 [node name="Label" type="Label" parent="." unique_id=64107156]
-offset_left = 1494.0
-offset_top = 846.0
-offset_right = 1916.0
-offset_bottom = 1073.0
+offset_left = 1496.0
+offset_top = 12.0
+offset_right = 1918.0
+offset_bottom = 239.0
 theme_override_font_sizes/font_size = 150
 text = "1:00"
 horizontal_alignment = 1
