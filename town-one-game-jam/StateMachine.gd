@@ -116,10 +116,9 @@ func _on_block_body_exited(body: CharacterBody3D, area: Area3D):
 
 
 func _on_timer_timeout():
-	if player_a_score > player_b_score:
-		ScoreManager.update_score(player_a_score)
-	else:
-		ScoreManager.update_score(player_b_score)
+
+	ScoreManager.update_score("playera", player_a_score)
+	ScoreManager.update_score("playerb", player_b_score)
 
 	# Update global score
 
@@ -193,5 +192,5 @@ func update_labels(player: String):
 	else:
 		player_b_score+=1
 		player_b_label.text = "Player B: " + str(player_b_score)
-	ScoreManager.update_score(player_a_score)
+	#ScoreManager.update_score(player_a_score)
 		
