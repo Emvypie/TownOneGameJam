@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://byt28lh8oog1u" path="res://Textures/T_Star.png" id="4_7ag3j"]
 [ext_resource type="Texture2D" uid="uid://02lewgvdi35t" path="res://Ref.jpg" id="5_0in7m"]
 [ext_resource type="Material" uid="uid://cjx0s84ul0nv6" path="res://Materials/M_Outline.tres" id="6_c7ed7"]
+[ext_resource type="PackedScene" uid="uid://b8ueve3g3x5xd" path="res://Animation/Idlee.fbx" id="7_pp3vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fr83"]
 size = Vector3(17, 1, 15)
@@ -216,3 +217,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0883436, 0)
 [node name="SlectionEffect_MeshInstance3D" type="MeshInstance3D" parent="Object" unique_id=1535751662]
 mesh = SubResource("SphereMesh_4wrjy")
 surface_material_override/0 = ExtResource("6_c7ed7")
+
+[node name="Idlee" parent="." unique_id=570370804 instance=ExtResource("7_pp3vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.720072, 2.0474062, 3.4823265)
