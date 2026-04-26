@@ -2,6 +2,21 @@
 
 [ext_resource type="ArrayMesh" uid="uid://de37lhkjuuvsy" path="res://SawStation/OperatingTable.obj" id="1_bgab8"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgab8"]
+albedo_color = Color(0.2837921, 0.2539216, 0.23814219, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4gmx"]
+albedo_color = Color(0.49780917, 0.45757067, 0.4346151, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2rc0"]
+albedo_color = Color(0.49026036, 0.19742808, 0.14525467, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giqe1"]
+albedo_color = Color(0.20105165, 0.31765926, 0.41490343, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wareu"]
+albedo_color = Color(0.31989738, 0.3605285, 0.41651905, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kau7x"]
 size = Vector3(8.624832, 3, 13.196838)
 
@@ -12,6 +27,11 @@ size = Vector3(2.930954, 3.8027344, 7.965912)
 
 [node name="MESH_Bed" type="MeshInstance3D" parent="." unique_id=1571655593]
 mesh = ExtResource("1_bgab8")
+surface_material_override/0 = SubResource("StandardMaterial3D_bgab8")
+surface_material_override/1 = SubResource("StandardMaterial3D_j4gmx")
+surface_material_override/2 = SubResource("StandardMaterial3D_v2rc0")
+surface_material_override/3 = SubResource("StandardMaterial3D_giqe1")
+surface_material_override/4 = SubResource("StandardMaterial3D_wareu")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=792888718 groups=["chopping_block"]]
 

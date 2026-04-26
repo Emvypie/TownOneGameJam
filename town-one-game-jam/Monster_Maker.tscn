@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dx5cm26bys813"]
+[gd_scene format=3 uid="uid://ctirkdcbgh76c"]
 
 [ext_resource type="ArrayMesh" uid="uid://dpbbhjawt0pbx" path="res://Tank/Tank.obj" id="1_fdiap"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdiap"]
+albedo_color = Color(0, 0.67058825, 0.4, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yllnb"]
 height = 11.75
@@ -13,7 +16,9 @@ radius = 2.6953125
 [node name="MonsterMaker" type="Node3D" unique_id=521857803]
 
 [node name="MESH_TUBE" type="MeshInstance3D" parent="." unique_id=778773635]
+transparency = 0.42
 mesh = ExtResource("1_fdiap")
+surface_material_override/0 = SubResource("StandardMaterial3D_fdiap")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=855369471]
 

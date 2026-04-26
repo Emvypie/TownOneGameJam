@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://d13gue3y1rivb"]
+[gd_scene format=3 uid="uid://53ycihg4k0iq"]
 
 [ext_resource type="Script" uid="uid://c1ak2e7o7d0bw" path="res://StateMachine.gd" id="1_kpjcp"]
 [ext_resource type="ArrayMesh" uid="uid://cit13xnphlptv" path="res://Player/PlayerCharacter.obj" id="2_kne1u"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e80uo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpjcp"]
+albedo_color = Color(0.26037592, 0.19042125, 0.61099464, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cxr5p"]
 emission_shape = 1
@@ -42,7 +43,7 @@ script = ExtResource("1_kpjcp")
 
 [node name="MESH_Player" type="MeshInstance3D" parent="KB_Player" unique_id=1232077925]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.63, 0)
-material_overlay = SubResource("ShaderMaterial_e80uo")
+material_overlay = SubResource("StandardMaterial3D_kpjcp")
 mesh = ExtResource("2_kne1u")
 metadata/_edit_lock_ = true
 
