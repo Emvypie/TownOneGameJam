@@ -28,6 +28,8 @@ var time_to_reset = 2.0
 var reset_timer = 0
 
 func _ready():
+	if time_passed < wait_time:
+		return
 	score_label.text = "Score: 0"
 	split30_label.text = "30s: "
 
@@ -55,6 +57,8 @@ func _process(delta):
 		next_rate_check += 10.0
 
 func _input(event):
+	if time_passed < wait_time:
+		return
 	if event.is_action_pressed("RESTART"):
 		reset_timer = get_tree().create_timer(0.05)
 		reset_timer.timeout.connect(_reset_game)

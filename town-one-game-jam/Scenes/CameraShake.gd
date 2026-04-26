@@ -1,6 +1,7 @@
 extends Camera3D
 
 var is_shaking := false
+var can_input = false
 
 func shake_rotation(max_rotation_degrees: float, duration: float) -> void:
 	if is_shaking:
@@ -27,8 +28,13 @@ func shake_rotation(max_rotation_degrees: float, duration: float) -> void:
 	rotation = start_rotation
 	is_shaking = false
 
+func _ready():
+	await get_tree().create_timer(4.0).timeout
+	can_input = true
+
 func _input(event):
-	if event.is_action_pressed("PLAYER_B_BTN_2"):
-		shake_rotation(3, 0.1)
-	if event.is_action_pressed("PLAYER_B_BTN_1"):
-		shake_rotation(3, 0.1)
+	if can_input:
+		if event.is_action_pressed("PLAYER_B_BTN_2"):
+			shake_rotation(3, 0.1)
+		if event.is_action_pressed("PLAYER_B_BTN_1"):
+			shake_rotation(3, 0.1)
