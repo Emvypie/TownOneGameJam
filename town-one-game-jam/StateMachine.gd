@@ -109,7 +109,7 @@ func _on_block_body_exited(body: CharacterBody3D, area: Area3D):
 		chopping_block = null
 
 
-func _on_enemy_died():
+func _on_timer_timeout():
 	if player_a_score > player_b_score:
 		ScoreManager.update_score(player_a_score)
 	else:
