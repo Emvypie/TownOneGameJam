@@ -1447,4 +1447,4 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=811637668]
 libraries/ = SubResource("AnimationLibrary_a55en")
-speed_scale = 5.0
+speed_scale = 10.0
