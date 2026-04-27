@@ -15,16 +15,17 @@ var stop_incrementing = false
 var peak_rate = 0.0
 var previous_check_score = 0
 var next_rate_check = 10.0
-var peak_shown = false
 var frankenstein = null
 var final_score = null
-var game_over = null
+
 var right_beam = null
 var left_beam = null
+var beam_timer = 0
+
 var right_fire = null
 var left_fire = null
-var beam_timer = 0
 var fire_timer = 0
+
 var total_time = 64.0
 var time_to_reset = 2.0
 var reset_timer = 0
