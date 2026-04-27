@@ -9,8 +9,39 @@
 [ext_resource type="PackedScene" uid="uid://b0l335xjssykt" path="res://room_v02.tscn" id="9_0hxss"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
 [ext_resource type="AudioStream" uid="uid://bgdnwt13h6xsx" path="res://Sound/Music .wav" id="10_cu1tp"]
+[ext_resource type="Texture2D" uid="uid://dc4fjgsm1owmt" path="res://Asset/UI/countdown_03.png" id="10_ty0h2"]
 [ext_resource type="PackedScene" uid="uid://bukr84xaryhnp" path="res://Scenes/ComicFrame.tscn" id="11_6pih3"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
+[ext_resource type="Texture2D" uid="uid://bkta8yfc8nksq" path="res://Asset/UI/Untitled-1.png" id="11_ty0h2"]
+[ext_resource type="Texture2D" uid="uid://bj815led23vm0" path="res://Asset/UI/countdown_01.png" id="12_pc0kq"]
+[ext_resource type="Texture2D" uid="uid://b87eygkvi5ryy" path="res://Asset/UI/1.png" id="13_1iorb"]
+[ext_resource type="Texture2D" uid="uid://qs05b0k2djdc" path="res://Asset/UI/go.png" id="13_pc0kq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbbsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ty0h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ty0h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pc0kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pc0kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1iorb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1iorb")
+}],
+"loop": false,
+"name": &"countDown",
+"speed": 1.0
+}]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
 script = ExtResource("1_ogt3e")
@@ -45,8 +76,17 @@ visible = false
 
 [node name="Room" parent="." unique_id=1375406081 instance=ExtResource("9_0hxss")]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1739129916]
-stream = ExtResource("10_cu1tp")
-autoplay = true
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1175407383]
+transform = Transform3D(-0.126382, 0, -0.2720801, 0, 0.29999998, 0, 0.2720801, 0, -0.126382, -1.6785259, 6.648574, -10.714018)
+modulate = Color(0.7134504, 0.60712653, 0.4161298, 1)
+sprite_frames = SubResource("SpriteFrames_pbbsk")
+animation = &"countDown"
+autoplay = "countDown"
 
 [node name="Onom" parent="." unique_id=2061850671 instance=ExtResource("11_6pih3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2026080966]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1313407023]
+stream = ExtResource("10_cu1tp")
+autoplay = true
