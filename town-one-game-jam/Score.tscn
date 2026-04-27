@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
 [ext_resource type="Script" uid="uid://brm4bykusapdd" path="res://MainScore.gd" id="2_g5nnr"]
+[ext_resource type="FontFile" uid="uid://cmn1ddnyo45cn" path="res://Eater/Eater-Regular.ttf" id="2_ppxxd"]
 
 [node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split15_label", "split30_label", "split45_label")]
 script = ExtResource("1_7urb4")
@@ -14,6 +15,7 @@ split45_label = NodePath("30s2")
 offset_right = 512.0
 offset_bottom = 209.0
 theme_override_colors/font_color = Color(0.62584263, 0, 0.26994127, 1)
+theme_override_fonts/font = ExtResource("2_ppxxd")
 theme_override_font_sizes/font_size = 150
 text = "Score: 0"
 vertical_alignment = 1
