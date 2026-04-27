@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5i3fd73beb57"]
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
+[ext_resource type="Script" uid="uid://brm4bykusapdd" path="res://MainScore.gd" id="2_g5nnr"]
 
 [node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split15_label", "split30_label", "split45_label")]
 script = ExtResource("1_7urb4")
@@ -16,31 +17,40 @@ theme_override_colors/font_color = Color(0.62584263, 0, 0.26994127, 1)
 theme_override_font_sizes/font_size = 150
 text = "Score: 0"
 vertical_alignment = 1
+script = ExtResource("2_g5nnr")
+score_source_path = NodePath("..")
+property_name = "Score"
+color_green = Color(0.050980393, 0.41568628, 0, 1)
+color_blue = Color(0.3327455, 0.44934255, 0.97942644, 1)
+color_purple = Color(0.75092655, 0.40830398, 1, 1)
+color_red = Color(1, 0.12156863, 0, 1)
+shake_strength = 10.0
+shake_time = 0.4
 metadata/_edit_lock_ = true
 
 [node name="15" type="Label" parent="." unique_id=1286734269]
-offset_left = 17.0
-offset_top = 185.0
-offset_right = 169.0
-offset_bottom = 288.0
+offset_left = 16.0
+offset_top = 209.0
+offset_right = 168.0
+offset_bottom = 312.0
 theme_override_font_sizes/font_size = 50
 text = "15 s: "
 vertical_alignment = 1
 
 [node name="30" type="Label" parent="." unique_id=327299073]
-offset_left = 19.0
-offset_top = 246.0
-offset_right = 171.0
-offset_bottom = 349.0
+offset_left = 18.0
+offset_top = 270.0
+offset_right = 170.0
+offset_bottom = 373.0
 theme_override_font_sizes/font_size = 50
 text = "30 s: "
 vertical_alignment = 1
 
 [node name="30s2" type="Label" parent="." unique_id=485722762]
-offset_left = 17.0
-offset_top = 308.0
-offset_right = 169.0
-offset_bottom = 411.0
+offset_left = 16.0
+offset_top = 332.0
+offset_right = 168.0
+offset_bottom = 435.0
 theme_override_font_sizes/font_size = 50
 text = "45 s: "
 vertical_alignment = 1
