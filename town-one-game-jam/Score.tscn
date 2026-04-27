@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
 [ext_resource type="Script" uid="uid://brm4bykusapdd" path="res://MainScore.gd" id="2_g5nnr"]
+[ext_resource type="FontFile" uid="uid://bmbrc0mk3r0or" path="res://UI/Eater/Eater-Regular.ttf" id="2_ppxxd"]
 
 [node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split15_label", "split30_label", "split45_label")]
 script = ExtResource("1_7urb4")
@@ -14,6 +15,7 @@ split45_label = NodePath("30s2")
 offset_right = 512.0
 offset_bottom = 209.0
 theme_override_colors/font_color = Color(0.62584263, 0, 0.26994127, 1)
+theme_override_fonts/font = ExtResource("2_ppxxd")
 theme_override_font_sizes/font_size = 150
 text = "Score: 0"
 vertical_alignment = 1
@@ -25,6 +27,7 @@ offset_left = 17.0
 offset_top = 185.0
 offset_right = 169.0
 offset_bottom = 288.0
+theme_override_fonts/font = ExtResource("2_ppxxd")
 theme_override_font_sizes/font_size = 50
 text = "15 s: "
 vertical_alignment = 1
@@ -34,6 +37,7 @@ offset_left = 19.0
 offset_top = 246.0
 offset_right = 171.0
 offset_bottom = 349.0
+theme_override_fonts/font = ExtResource("2_ppxxd")
 theme_override_font_sizes/font_size = 50
 text = "30 s: "
 vertical_alignment = 1
@@ -43,6 +47,7 @@ offset_left = 17.0
 offset_top = 308.0
 offset_right = 169.0
 offset_bottom = 411.0
+theme_override_fonts/font = ExtResource("2_ppxxd")
 theme_override_font_sizes/font_size = 50
 text = "45 s: "
 vertical_alignment = 1
