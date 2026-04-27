@@ -1,6 +1,7 @@
 extends Node
 
 @export var score_label: Label
+@export var split15_label: Label
 @export var split30_label: Label
 @export var split45_label: Label
 
@@ -8,6 +9,7 @@ var score = 0
 var time_passed = 0.0
 var wait_time = 3.5
 
+var split_15_done = false
 var split_30_done = false
 var split_45_done = false
 var stop_incrementing = false
@@ -34,6 +36,7 @@ func _ready():
 	if time_passed < wait_time:
 		return
 	score_label.text = "Score: 0"
+	split15_label.text = "15 s: "
 	split30_label.text = "30 s: "
 	split45_label.text = "45 s: "
 
@@ -46,6 +49,10 @@ func _process(delta):
 		
 	var timer = $"../Timer/Timer"
 	timer.timeout.connect(set_final_score)
+
+	if time_passed >= 15.0 and !split_15_done:
+		split15_label.text = "15 s: " + str(score)
+		split_15_done = true
 
 	if time_passed >= 30.0 and !split_30_done:
 		split30_label.text = "30 s: " + str(score)
