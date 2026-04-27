@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://batbq7idolui0" path="res://GameOver_Scene.tscn" id="7_q5y2k"]
 [ext_resource type="PackedScene" uid="uid://b0l335xjssykt" path="res://room_v02.tscn" id="9_0hxss"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
+[ext_resource type="AudioStream" uid="uid://ddsvxli5b7q11" path="res://Sound/Music .wav" id="10_cu1tp"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
@@ -42,3 +43,7 @@ stream = ExtResource("5_ogt3e")
 visible = false
 
 [node name="Room" parent="." unique_id=1375406081 instance=ExtResource("9_0hxss")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1739129916]
+stream = ExtResource("10_cu1tp")
+autoplay = true
