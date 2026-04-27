@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b0l335xjssykt" path="res://room_v02.tscn" id="9_0hxss"]
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
 [ext_resource type="AudioStream" uid="uid://bgdnwt13h6xsx" path="res://Sound/Music .wav" id="10_cu1tp"]
+[ext_resource type="PackedScene" uid="uid://bukr84xaryhnp" path="res://Scenes/ComicFrame.tscn" id="11_6pih3"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
 
 [node name="Main Scene" type="Node3D" unique_id=814078436]
@@ -47,3 +48,5 @@ visible = false
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1739129916]
 stream = ExtResource("10_cu1tp")
 autoplay = true
+
+[node name="Onom" parent="." unique_id=2061850671 instance=ExtResource("11_6pih3")]

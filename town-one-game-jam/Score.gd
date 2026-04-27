@@ -24,6 +24,12 @@ var right_beam = null
 var left_beam = null
 var beam_timer = 0
 
+var boom = null
+var kapow = null
+var boom_timer = null
+var kapow_timer = null
+
+
 var right_fire = null
 var left_fire = null
 var fire_timer = 0
@@ -80,6 +86,10 @@ func _input(event):
 		reset_timer.timeout.connect(_reset_game)
 
 	if time_passed < total_time:
+		boom = $"../Onom/Sprite2D"
+		kapow = $"../Onom/Sprite2D2"
+		print(boom)
+
 		frankenstein = $"../Frankenstein/AnimationPlayer"
 		right_beam = $"../Frankenstein/RightTrack_GPUParticles3D3"
 		left_beam = $"../Frankenstein/LeftTrack_GPUParticles3D2"
@@ -94,6 +104,10 @@ func _input(event):
 			beam_timer.timeout.connect(_beam_timer_timeout.bind(right_beam))
 			fire_timer = get_tree().create_timer(0.2)
 			fire_timer.timeout.connect(_fire_timer_timeout.bind(right_fire))
+			if score > 200:
+				boom.visible = true
+				boom_timer = get_tree().create_timer(0.2)
+				boom_timer.timeout.connect(_vfx_timer_timeout.bind(boom))
 
 			# punch/sound
 			frankenstein.play("Right punch")
@@ -108,11 +122,23 @@ func _input(event):
 			beam_timer.timeout.connect(_beam_timer_timeout.bind(left_beam))
 			fire_timer = get_tree().create_timer(0.2)
 			fire_timer.timeout.connect(_fire_timer_timeout.bind(left_fire))
+			
+			if score > 400: 
+				kapow.visible = true
+				kapow_timer = get_tree().create_timer(0.2)
+				kapow_timer.timeout.connect(_vfx_timer_timeout.bind(kapow))
 
 			# punch/sound
 			frankenstein.play("Left punch")
 			add_score()
 			play_punch_sound()
+			
+	if score > 300:
+		var onom = $"../Onom/AnimatedSprite2D"
+
+
+func _vfx_timer_timeout(vfx):
+	vfx.visible = false
 
 func _beam_timer_timeout(beam) -> void:
 	beam.visible = false
