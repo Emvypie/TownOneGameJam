@@ -35,7 +35,7 @@ func _ready():
 		return
 	score_label.text = "Score: 0"
 	split30_label.text = "30 s: "
-	split30_label.text = "45 s: "
+	split45_label.text = "45 s: "
 
 
 func _process(delta):

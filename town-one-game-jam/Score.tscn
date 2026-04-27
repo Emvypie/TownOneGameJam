@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
 
-[node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split30_label")]
+[node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split30_label", "split45_label")]
 script = ExtResource("1_7urb4")
 score_label = NodePath("Main Score")
 split30_label = NodePath("30")
+split45_label = NodePath("30s2")
 
 [node name="Main Score" type="Label" parent="." unique_id=253219591]
 offset_right = 512.0
