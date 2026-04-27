@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TownOneGameJam"
-run/main_scene="uid://du73rarogwkio"
+run/main_scene="uid://bdpqj2hy0agpf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [audio]

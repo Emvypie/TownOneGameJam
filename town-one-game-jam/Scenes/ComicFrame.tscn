@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dycf8s6ifce2w"]
+[gd_scene format=3 uid="uid://bukr84xaryhnp"]
 
 [ext_resource type="Texture2D" uid="uid://b4opxodhjrs3n" path="res://Textures/Frame-1.png" id="1_k7mw7"]
 [ext_resource type="Texture2D" uid="uid://blgqejqovpw67" path="res://Textures/Frame-2.png" id="2_iku1l"]
@@ -27,7 +27,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node3D" type="Node3D" unique_id=2061850671]
+[node name="Onom" type="Node3D" unique_id=2061850671]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=749493719]
 visible = false
@@ -36,9 +36,11 @@ sprite_frames = SubResource("SpriteFrames_jr52o")
 frame_progress = 0.9454598
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134324277]
+visible = false
 position = Vector2(258, 623)
 texture = ExtResource("5_ygbq0")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1587402761]
+visible = false
 position = Vector2(1601, 287)
 texture = ExtResource("6_bnn02")
