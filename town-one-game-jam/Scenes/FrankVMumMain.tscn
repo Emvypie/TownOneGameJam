@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcod0en8xwx1f" path="res://Timer.tscn" id="10_c7ks4"]
 [ext_resource type="AudioStream" uid="uid://bgdnwt13h6xsx" path="res://Sound/Music .wav" id="10_cu1tp"]
 [ext_resource type="Texture2D" uid="uid://dc4fjgsm1owmt" path="res://Asset/UI/countdown_03.png" id="10_ty0h2"]
-[ext_resource type="PackedScene" uid="uid://bnusvi5mriqc" path="res://Scenes/ComicFrame.tscn" id="11_6pih3"]
+[ext_resource type="PackedScene" uid="uid://bukr84xaryhnp" path="res://Scenes/ComicFrame.tscn" id="11_6pih3"]
 [ext_resource type="PackedScene" uid="uid://b5i3fd73beb57" path="res://Score.tscn" id="11_ik3go"]
 [ext_resource type="Texture2D" uid="uid://bkta8yfc8nksq" path="res://Asset/UI/Untitled-1.png" id="11_ty0h2"]
 [ext_resource type="Texture2D" uid="uid://bj815led23vm0" path="res://Asset/UI/countdown_01.png" id="12_pc0kq"]

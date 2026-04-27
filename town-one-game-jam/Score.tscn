@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5i3fd73beb57"]
 
 [ext_resource type="Script" uid="uid://cc1ir4chvdis2" path="res://Score.gd" id="1_7urb4"]
+[ext_resource type="Script" uid="uid://brm4bykusapdd" path="res://MainScore.gd" id="2_g5nnr"]
 
 [node name="Score" type="Node" unique_id=574491579 node_paths=PackedStringArray("score_label", "split15_label", "split30_label", "split45_label")]
 script = ExtResource("1_7urb4")
@@ -16,6 +17,7 @@ theme_override_colors/font_color = Color(0.62584263, 0, 0.26994127, 1)
 theme_override_font_sizes/font_size = 150
 text = "Score: 0"
 vertical_alignment = 1
+script = ExtResource("2_g5nnr")
 metadata/_edit_lock_ = true
 
 [node name="15" type="Label" parent="." unique_id=1286734269]
